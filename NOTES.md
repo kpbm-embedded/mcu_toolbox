@@ -52,3 +52,12 @@
 - Results: check.sh bare 64 (33 example runs on 7 chips + 31 template runs, all in qemu/Renode, incl. Rust/Zig), pico 108,
   stm32 48, wch 43, freertos 87 (now incl. the 16 qemu examples of 32_04): 350 OK, 0 failed; bats 59/59; mcu lint 0
   findings in owned files; doctor bare ok. Nothing ran on hardware (flash commands of the bare plugin are untested).
+- Fresh-clone check (clone on idisk03, `cache/` linked to this one, `BOX_INTEGRATION=0`, output inside the clone,
+  Rust/Zig reached via `BOX_EMBEDDED_RUST`/`BOX_MICROZIG`): all 34 pins missing at first; `mcu setup install core bare
+  pico` reinstalled buildtools, cmake, ninja, Arm GNU, xPack RISC-V GCC, qemu Arm/RISC-V, Renode, pico-sdk (+ submodules,
+  from GitHub), pico-examples, picotool, pico RISC-V toolchain in 1 min 48 s (archives from the cache); `mcu devtools
+  install` (sha256 ok); `mcu setup links` skipped (no sibling IDs next to the clone); doctor bare/pico ok; check.sh bare
+  65: 61 OK, 4 SKIP (bend-host-check: no 32_31_bend; stm32-ll x3: Cube packs not installed in the clone); `mcu build
+  pico pico blink` and the pico minimal template on 6 targets OK; bats 59/59 (after making the SDK test skip uninstalled
+  SDKs; the first clone run failed it on avr). Not reinstalled in the clone: stm32, wch, flash, sdks, ide groups and
+  everything unpinned (k230, Arduino cores, Bouffalo toolchain, host libs, stlink, pyocd). Clones moved to the Trash.
