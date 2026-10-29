@@ -45,7 +45,7 @@
   "no interrupt after CEN=0"), F1 LL pin-mode read-back differs (ODR read-back instead), an IT-block typo.
 - bats: +2 tests (setup list/usage, every pin has sha256 or commit) -> 59/59. Rust and Zig supported (examples rust-ffi,
   zig-ffi; templates rust-app, zig-app). Correction (third language = Bend 2, not BEAM; no BEAM was added): example
-  bend-host-check (host Bend reference vs. the C firmware in qemu), skipped (exit 3) because 32_31_bend does not exist
+  bend-host-check (host Bend reference vs. the C firmware in qemu), skipped (exit 3) because the shared Bend ID planned then did not exist
   yet; its C part was checked by hand in qemu (PASS), the Bend file is unchecked. No MCU claim for Bend.
 - bats test "targets and examples work for every buildable sdk" skips SDKs whose doctor fails (not installed): it
   failed in the fresh clone (avr not installed). Fresh clone: see below.
@@ -57,7 +57,12 @@
   pico` reinstalled buildtools, cmake, ninja, Arm GNU, xPack RISC-V GCC, qemu Arm/RISC-V, Renode, pico-sdk (+ submodules,
   from GitHub), pico-examples, picotool, pico RISC-V toolchain in 1 min 48 s (archives from the cache); `mcu devtools
   install` (sha256 ok); `mcu setup links` skipped (no sibling IDs next to the clone); doctor bare/pico ok; check.sh bare
-  65: 61 OK, 4 SKIP (bend-host-check: no 32_31_bend; stm32-ll x3: Cube packs not installed in the clone); `mcu build
+  65: 61 OK, 4 SKIP (bend-host-check: no Bend then; stm32-ll x3: Cube packs not installed in the clone); `mcu build
   pico pico blink` and the pico minimal template on 6 targets OK; bats 59/59 (after making the SDK test skip uninstalled
   SDKs; the first clone run failed it on avr). Not reinstalled in the clone: stm32, wch, flash, sdks, ide groups and
   everything unpinned (k230, Arduino cores, Bouffalo toolchain, host libs, stlink, pyocd). Clones moved to the Trash.
+- Bend, final rule (no shared Bend ID; each tool pins its own): Bend 2.0.39 pinned here as optional group `bend`
+  (linux-x64, sha256 from the GitHub release API), installed into `toolchain/tools/bend-2.0.39`, run with HOME/TMPDIR in
+  `cache/bend-home` and BEND_NO_TELEMETRY=1. `src/ringidx.bend` did not pass `bend` as written: operators need a type
+  annotation (`((i + 1) % size : U32)`) and the recursion must shrink its leftmost changing argument (step count moved
+  first, as Nat). check.sh --only bend-host-check bare: OK (firmware 0, Bend 0).

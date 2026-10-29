@@ -1,7 +1,7 @@
 name        = "bend-host-check"
 sdk         = "bare"
-description = "Bend 2 on the host (32_31_bend) as a reference for firmware logic: ring-buffer index walk, compared with the C firmware run in qemu"
+description = "Bend 2 on the host (pinned, optional group bend) as a reference for firmware logic: ring-buffer index walk, compared with the C firmware run in qemu"
 targets     = ["mps2-an385"]
-hardware    = "none: qemu mps2-an385 + host Bend; skipped (exit 3) until 32_31_bend exists"
+hardware    = "none: qemu mps2-an385 + host Bend; skipped (exit 3) until `mcu setup install bend`"
 features    = ["bend", "host-reference", "qemu"]
-status      = "not run: 32_31_bend missing on 2026-10-29 (needs.sh skips); Bend file unverified"
+status      = "PASS 2026-10-29: firmware 0, Bend 0"

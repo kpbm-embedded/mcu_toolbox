@@ -1,7 +1,8 @@
 # mcu pins: what `mcu setup install <group|name>` installs into toolchain/ (checked 2026-10-29).
 # sha256 from the publisher's checksum file where one exists (buildtools .sha256sum, cmake SHA-256.txt, Arm .sha256asc,
 # xPack .sha, probe-rs .sha256, Renode pins of 32_06); other release archives: sha256 of the archive installed here.
-# Git pins are commits (version column = tag/branch). Groups: core, bare, pico, stm32, wch, flash, sdks, ide (CLion GoogleTest).
+# Git pins are commits (version column = tag/branch). Groups: core, bare, pico, stm32, wch, flash, sdks, ide (CLion GoogleTest), bend (optional:
+# Bend 2 for the host-side bend-host-check example; digest from the GitHub release API .assets[].digest, Apache-2.0).
 # Not pinned (installed by hand, see toolchain/<sdk>/README.md): k230 (repo sync of manifest-frozen-20261023.xml,
 # ~8 GB), the avr cores (arduino-cli core install), the bouffalo Xuantie toolchain, host private libs (host/README.md).
 # name	version	group	kind	digest	url	dest(toolchain/)	probe(toolchain/)	extra
@@ -38,3 +39,4 @@ bouffalo_sdk	v2.3.37	sdks	git	git:f924fbb2fe2ba98430cb4da940861beeb8c0682b	https
 bouffalo_sdk_legacy	master_legacy@811e8c1	sdks	git	git:811e8c1f1cd62695cedd47367f0bf2c624707bc6	https://github.com/bouffalolab/bouffalo_sdk	bouffalo/bouffalo_sdk_legacy	bouffalo/bouffalo_sdk_legacy/README.md
 arduino-cli	1.5.1	sdks	tar	sha256:28a8e119c498a25607821c36cb2dc49e8463941b261a0d99091baa7bc692dd2b	https://github.com/arduino/arduino-cli/releases/download/v1.5.1/arduino-cli_1.5.1_Linux_64bit.tar.gz	avr/arduino-cli-1.5.1	avr/bin/arduino-cli	strip=0;link=avr/arduino-cli=arduino-cli-1.5.1;link=avr/bin/arduino-cli=../arduino-cli/arduino-cli;tags=^v[0-9]+\.[0-9]+\.[0-9]+$
 googletest	1.18.0	ide	tar	sha256:6e3191c1455468b3fc35a417fb565c1c5071aee1b7e7f85e30cf48a98d37d8b5	https://github.com/google/googletest/releases/download/v1.18.0/googletest-1.18.0.tar.gz	../ide/clion/third_party/googletest-1.18.0	../ide/clion/third_party/googletest-1.18.0/CMakeLists.txt	tags=^v[0-9]+\.[0-9]+\.[0-9]+$
+bend	2.0.39	bend	tar	sha256:6cf462fd8f70b094a4950ebb709a9c4ffd8f1d1189d9cedf1fd63cd5d041c7ab	https://github.com/bendlang/bend/releases/download/v2.0.39/bend-2.0.39-linux-x64.tar.gz	tools/bend-2.0.39	tools/bend-2.0.39/bin/bend	tags=^v[0-9]+\.[0-9]+\.[0-9]+$

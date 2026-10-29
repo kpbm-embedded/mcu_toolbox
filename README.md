@@ -104,7 +104,7 @@ New 2026-10-29 (`bare` SDK; all run in qemu/Renode by check.sh):
 
 | Examples (14) | Templates (12, `templates/bare/`) |
 |---|---|
-| hello-chips (7 chips), bend-host-check (skips without 32_31_bend), systick-irq, fault-decode, noinit-reboot, size-budget (+ test.sh budget), ringbuf-split (host ctest + target), q15-fir, bootloader-app, timer-irq-stm32, cxx-bare, mpu-stack-guard, rust-ffi, zig-ffi | minimal (7 chips, `mcu new bare`), irq-driven, fw-host-tests, own-startup, bootloader-app, nrf52840-uf2 (UF2 check), stm32-ll (Cube LL, no HAL), cxx-app, fault-handler, size-budget, rust-app, zig-app |
+| hello-chips (7 chips), bend-host-check (needs optional group bend), systick-irq, fault-decode, noinit-reboot, size-budget (+ test.sh budget), ringbuf-split (host ctest + target), q15-fir, bootloader-app, timer-irq-stm32, cxx-bare, mpu-stack-guard, rust-ffi, zig-ffi | minimal (7 chips, `mcu new bare`), irq-driven, fw-host-tests, own-startup, bootloader-app, nrf52840-uf2 (UF2 check), stm32-ll (Cube LL, no HAL), cxx-app, fault-handler, size-budget, rust-app, zig-app |
 
 ## Configuration and environment variables
 
@@ -147,6 +147,7 @@ publisher's checksum file where one exists) or git URL + commit. Nothing is over
 | `flash` | xPack OpenOCD 0.12.0-7, probe-rs 0.32.0 |
 | `sdks` | esp-idf v6.1 (+ its `install.sh`, which checks its tools' sha256), py32f0-template, Kendryte SDKs + toolchain, bouffalo_sdk (+ legacy), arduino-cli 1.5.1 |
 | `ide` | GoogleTest 1.18.0 for the CLion helper |
+| `bend` | optional: Bend 2.0.39 (linux-x64) for the host-side `bend-host-check` example |
 
 Not in the pins (by hand, see `toolchain/<sdk>/README.md`): k230 (`repo sync` of the frozen manifest in
 `toolchain/k230`, ~8 GB), the Arduino cores (`arduino-cli core install`), the Bouffalo Xuantie toolchain, the host
@@ -167,8 +168,8 @@ CH32V003 with a hand-written platform in `chips/ch32v003/renode.repl`). Every pr
 - **Zig: supported** (`zig-ffi`, `bare/zig-app`): Zig 0.17.0 of `32_24_microzig` (`$BOX_MICROZIG`).
 - **Bend 2: host side only** (`bend-host-check` example): Bend has no MCU target (its C output needs a hosted POSIX
   system), so it serves as a host reference for firmware logic, compared with the C firmware run in qemu. Bend is
-  reached in `32_31_bend` (`$BOX_BEND`); that ID did not exist yet on 2026-10-29, so the example is skipped (exit 3)
-  and its Bend file is unchecked.
+  pinned here as an optional group (Bend 2.0.39, `mcu setup install bend`, sha256 checked) and runs with HOME/TMPDIR
+  in `cache/bend-home`, BEND_NO_TELEMETRY=1; without it the example is skipped (exit 3). PASS 2026-10-29.
 
 ## Native mode
 

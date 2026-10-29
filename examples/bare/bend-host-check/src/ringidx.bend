@@ -1,14 +1,16 @@
+import Base
 # Host-side reference for the firmware's ring-buffer index math (src/main.c): next(i) = (i + 1) % size.
 # Bend 2 runs on the host only (no MCU target); test.sh compares its output with the firmware's.
-# Written before 32_31_bend existed: syntax follows the Bend 2 README and is not yet checked by `bend`.
-def next(i: U32, size: U32) -> U32:
-  (i + 1) % size
+def next(+i: U32, +size: U32) -> U32:
+  ((i + 1) % size : U32)
 
-def walk(i: U32, size: U32, steps: U32) -> U32:
-  if steps == 0:
-    i
-  else:
-    walk(next(i, size), size, steps - 1)
+# steps comes first: Bend checks termination left to right (each argument unchanged until one shrinks)
+def walk(steps: Nat, +i: U32, +size: U32) -> U32:
+  match steps:
+    case 0n:
+      i
+    case 1n+s:
+      walk(s, next(i, size), size)
 
 def main() -> U32:
-  walk(0, 8, 1000)
+  walk(1000n, 0, 8)
