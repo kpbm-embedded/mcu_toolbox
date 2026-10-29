@@ -44,7 +44,11 @@
   rv_start.S), Zig objects need `__exidx_start/end`, emulators do not keep TIM2 and SysTick in ratio (test changed to
   "no interrupt after CEN=0"), F1 LL pin-mode read-back differs (ODR read-back instead), an IT-block typo.
 - bats: +2 tests (setup list/usage, every pin has sha256 or commit) -> 59/59. Rust and Zig supported (examples rust-ffi,
-  zig-ffi; templates rust-app, zig-app); BEAM not (AtomVM images are 32_29_atomvm's job).
+  zig-ffi; templates rust-app, zig-app). Correction (third language = Bend 2, not BEAM; no BEAM was added): example
+  bend-host-check (host Bend reference vs. the C firmware in qemu), skipped (exit 3) because 32_31_bend does not exist
+  yet; its C part was checked by hand in qemu (PASS), the Bend file is unchecked. No MCU claim for Bend.
+- bats test "targets and examples work for every buildable sdk" skips SDKs whose doctor fails (not installed): it
+  failed in the fresh clone (avr not installed). Fresh clone: see below.
 - Results: check.sh bare 64 (33 example runs on 7 chips + 31 template runs, all in qemu/Renode, incl. Rust/Zig), pico 108,
   stm32 48, wch 43, freertos 87 (now incl. the 16 qemu examples of 32_04): 350 OK, 0 failed; bats 59/59; mcu lint 0
   findings in owned files; doctor bare ok. Nothing ran on hardware (flash commands of the bare plugin are untested).

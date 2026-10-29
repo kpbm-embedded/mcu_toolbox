@@ -102,9 +102,9 @@ Run from `tool/` as `./mcu <command>`. `./mcu help <command>` gives details and 
 
 New 2026-10-29 (`bare` SDK; all run in qemu/Renode by check.sh):
 
-| Examples (13) | Templates (12, `templates/bare/`) |
+| Examples (14) | Templates (12, `templates/bare/`) |
 |---|---|
-| hello-chips (7 chips), systick-irq, fault-decode, noinit-reboot, size-budget (+ test.sh budget), ringbuf-split (host ctest + target), q15-fir, bootloader-app, timer-irq-stm32, cxx-bare, mpu-stack-guard, rust-ffi, zig-ffi | minimal (7 chips, `mcu new bare`), irq-driven, fw-host-tests, own-startup, bootloader-app, nrf52840-uf2 (UF2 check), stm32-ll (Cube LL, no HAL), cxx-app, fault-handler, size-budget, rust-app, zig-app |
+| hello-chips (7 chips), bend-host-check (skips without 32_31_bend), systick-irq, fault-decode, noinit-reboot, size-budget (+ test.sh budget), ringbuf-split (host ctest + target), q15-fir, bootloader-app, timer-irq-stm32, cxx-bare, mpu-stack-guard, rust-ffi, zig-ffi | minimal (7 chips, `mcu new bare`), irq-driven, fw-host-tests, own-startup, bootloader-app, nrf52840-uf2 (UF2 check), stm32-ll (Cube LL, no HAL), cxx-app, fault-handler, size-budget, rust-app, zig-app |
 
 ## Configuration and environment variables
 
@@ -154,7 +154,7 @@ private libs (`toolchain/host/README.md`), stlink/st-flash (built from source), 
 `mcu setup links` creates the symlinks into the sibling IDs (`tool/freertos`, `tool/zephyr`, `examples/{freertos,zephyr}`,
 two `projects/`) when those IDs exist next to this one; they are not in git.
 
-## bare SDK, Rust, Zig, BEAM
+## bare SDK, Rust, Zig, Bend
 
 `mcu build bare <chip> <example>`, `templates/tools/check.sh bare` (build + emulator run of every example/template).
 Chips: `mps2-an385` (qemu), `virt-rv32` (qemu), `stm32f411`, `stm32h743`, `stm32f103`, `nrf52840`, `ch32v003` (Renode;
@@ -165,8 +165,10 @@ CH32V003 with a hand-written platform in `chips/ch32v003/renode.repl`). Every pr
 - **Rust: supported** (`rust-ffi` example, `bare/rust-app` template): no_std staticlib built with the rustc of
   `32_17_embedded_rust` (`$BOX_EMBEDDED_RUST`, else the sibling folder; reached, not copied), linked with the C startup.
 - **Zig: supported** (`zig-ffi`, `bare/zig-app`): Zig 0.17.0 of `32_24_microzig` (`$BOX_MICROZIG`).
-- **BEAM (AtomVM): not supported** in mcu: AtomVM is a prebuilt VM image per board plus `.avm` apps, built and flashed
-  by `32_29_atomvm`; mcu builds C SDK firmware and has no AtomVM port build or emulator target for it.
+- **Bend 2: host side only** (`bend-host-check` example): Bend has no MCU target (its C output needs a hosted POSIX
+  system), so it serves as a host reference for firmware logic, compared with the C firmware run in qemu. Bend is
+  reached in `32_31_bend` (`$BOX_BEND`); that ID did not exist yet on 2026-10-29, so the example is skipped (exit 3)
+  and its Bend file is unchecked.
 
 ## Native mode
 

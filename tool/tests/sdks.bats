@@ -37,6 +37,8 @@ setup() {
   for sdk in $("$MCU" __complete sdks); do
     # here-strings, not pipes: under bats' pipefail, grep -q closing the pipe early can fail the producer
     grep -q 'commands .*build' <<<"$("$MCU" info "$sdk")" || continue
+    # an SDK that is not installed (fresh clone: `mcu setup install <group>` not run for it) is not checked here
+    "$MCU" doctor "$sdk" >/dev/null 2>&1 || continue
     run "$MCU" targets "$sdk"
     [ "$status" -eq 0 ] || {
       echo "targets $sdk: $output"
