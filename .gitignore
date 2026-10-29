@@ -60,3 +60,6 @@ __pycache__/
 *.hex
 *.map
 *.o
+
+# internal progress log of the Box workspace (not published)
+/tool/PROGRESS_embedded.md
