@@ -1,0 +1,7 @@
+name        = "zig-ffi"
+sdk         = "bare"
+description = "Zig (freestanding object, pinned Zig of 32_24_microzig) linked with the C startup: CRC with a comptime table, @bitReverse, callback into C"
+targets     = ["mps2-an385", "stm32f411", "virt-rv32"]
+hardware    = "none: qemu (mps2-an385, riscv virt), Renode (STM32F411); needs 32_24_microzig (skipped without it)"
+features    = ["zig", "ffi", "freestanding", "comptime"]
+status      = "tested in qemu/Renode (check.sh bare); not run on a board"

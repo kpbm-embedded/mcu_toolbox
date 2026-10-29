@@ -1,0 +1,7 @@
+name        = "systick-irq"
+sdk         = "bare"
+description = "SysTick at 1 kHz plus a software-pended PendSV: interrupt counting, WFI sleep and exception priorities"
+targets     = ["mps2-an385", "stm32f411", "nrf52840", "stm32f103"]
+hardware    = "none: qemu/Renode models; board pins in chips/<chip>/chip.c"
+features    = ["systick", "pendsv", "nvic", "wfi"]
+status      = "tested in qemu/Renode (check.sh bare); not run on a board"

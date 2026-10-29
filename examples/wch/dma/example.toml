@@ -1,0 +1,7 @@
+name        = "dma"
+sdk         = "wch"
+description = "DMA1 channel 1 memory-to-memory copy (polled TC), verified with memcmp and printed once per second"
+targets     = ["ch32v003", "ch32v203", "ch32v307", "ch32h417"]
+hardware    = "CH32V003 (WeAct F4U6 / EVT), CH32V203 (WeAct BluePill Plus C8T6), CH32V307V-R1, CH32H417; LED per board.h, printf on USART1"
+features    = ["dma", "mem2mem", "usart"]
+status      = "builds; untested on hardware"

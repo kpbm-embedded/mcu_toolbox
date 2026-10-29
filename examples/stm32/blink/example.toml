@@ -1,0 +1,7 @@
+name        = "blink"
+sdk         = "stm32"
+description = "Toggle the board LED every 500 ms"
+targets     = ["blackpill-f411", "weact-g431", "mini-h743", "bluepill-f103"]
+hardware    = "LED per board (see README table)"
+features    = ["gpio", "systick"]
+status      = "builds; untested on hardware"

@@ -1,0 +1,7 @@
+name        = "multicore-fifo"
+sdk         = "pico"
+description = "Core 0 sends numbers to core 1 over the inter-core FIFO; core 1 replies with squares"
+targets     = ["pico", "zero", "pico2", "pico2-riscv", "rp2350-zero", "rp2350-zero-riscv"]
+hardware    = "no external hardware"
+features    = ["multicore","fifo"]
+status      = "builds; untested on hardware"

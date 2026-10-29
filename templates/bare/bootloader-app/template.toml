@@ -1,0 +1,5 @@
+name        = "bootloader-app"
+sdk         = "bare"
+description = "Bootloader + application in one flash: app linked at a slot with a CRC header, bootloader verifies and jumps (VTOR, MSP)"
+targets     = ["mps2-an385"]
+default_target = "mps2-an385"

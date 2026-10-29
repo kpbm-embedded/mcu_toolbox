@@ -1,0 +1,7 @@
+name        = "uart-hello"
+sdk         = "py32"
+description = "printf over USART1 (PA2/PA3, 115200 8N1) and byte echo"
+targets     = ["py32f003x8", "py32f002ax5", "py32f030x8", "py32f071x8"]
+hardware    = "PY32F003x8 / PY32F002Ax5 dev boards, PY32F030x8 chip: LED PB5, USART1 PA2/PA3 (Puya LL example pins); PY32F071x8 chip (HAL): LED PC13, USART2 PA2/PA3; all unconfirmed for the owned boards"
+features    = ["usart", "printf"]
+status      = "builds; untested on hardware"

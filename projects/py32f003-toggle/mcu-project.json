@@ -1,0 +1,39 @@
+{
+  "kind": "make",
+  "env_sdk": "py32",
+  "toolchain": "cmake/toolchain.cmake",
+  "cmake_project": "py32f003-toggle",
+  "target": "firmware",
+  "elf": "fw/app.elf",
+  "flash": {
+    "how": "mcu",
+    "sdk": "py32",
+    "target": "py32f003x8",
+    "example": "led-toggle",
+    "stage": "{gen}/fw"
+  },
+  "monitor": [
+    "py32"
+  ],
+  "debug": {
+    "label": "pyOCD GDB server",
+    "exe": "../../toolchain/py32/.venv/bin/pyocd",
+    "args": [
+      "gdbserver",
+      "--pack",
+      "../../toolchain/py32/py32f0-template/Misc/Puya.PY32F0xx_DFP.1.1.7.pack",
+      "-t",
+      "py32f003x8",
+      "--port",
+      "3333"
+    ],
+    "connect": "tcp:localhost:3333",
+    "reset": "monitor reset halt"
+  },
+  "debug_skip": null,
+  "about": "py32f0-template PY32F0xx/LL/GPIO/LED_Toggle for PY32F003x8 (make)",
+  "sdk": "py32",
+  "name": "py32f003-toggle",
+  "sdk_target": "py32f003x8",
+  "example": "led-toggle"
+}

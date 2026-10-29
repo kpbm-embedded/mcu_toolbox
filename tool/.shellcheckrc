@@ -1,0 +1,5 @@
+# shellcheck settings for mcu/ (mcu lint)
+shell=bash
+external-sources=true
+source-path=SCRIPTDIR
+source-path=SCRIPTDIR

@@ -1,0 +1,8 @@
+name        = "minimal"
+sdk         = "esp-idf"
+description = "Blink an LED and log; the smallest real ESP-IDF app"
+targets     = ["esp32", "esp32s3", "esp32c3", "esp32c6", "esp32p4"]
+default_target = "esp32c3"
+[vars]
+LED_PIN = { esp32 = "2", esp32s3 = "2", esp32c3 = "8", esp32c6 = "15", esp32p4 = "23" }
+BOARD = { esp32 = "esp32-wroom32-ch340c", esp32s3 = "esp32s3-devkit", esp32c3 = "esp32c3-supermini", esp32c6 = "esp32c6", esp32p4 = "wt9932p4-tiny" }

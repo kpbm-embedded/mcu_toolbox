@@ -1,0 +1,7 @@
+name        = "uart-hello"
+sdk         = "pico"
+description = "Print a counter on UART0 (GP0 TX, GP1 RX, 115200 8N1)"
+targets     = ["pico", "zero", "pico2", "pico2-riscv", "rp2350-zero", "rp2350-zero-riscv"]
+hardware    = "UART0 TX=GP0 RX=GP1 on all boards (PICO_DEFAULT_UART_TX_PIN=0 / RX=1 in the board headers)"
+features    = ["uart"]
+status      = "builds; untested on hardware"

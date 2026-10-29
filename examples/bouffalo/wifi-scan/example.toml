@@ -1,0 +1,7 @@
+name        = "wifi-scan"
+sdk         = "bouffalo"
+description = "Wi-Fi station scan every 10 s (SDK fhost/wifi_mgmr), prints SSID, channel, RSSI, BSSID"
+targets     = ["bl616"]
+hardware    = "Sipeed M0s Dock BL616 / Ai-M62. No pins (on-chip Wi-Fi; antenna on the module)"
+features    = ["wifi", "freertos", "lwip"]
+status      = "builds; untested on hardware"

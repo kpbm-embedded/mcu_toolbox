@@ -1,0 +1,7 @@
+name        = "usb-cdc"
+sdk         = "pico"
+description = "USB CDC echo: upper-cases characters typed in a terminal"
+targets     = ["pico", "zero", "pico2", "pico2-riscv", "rp2350-zero", "rp2350-zero-riscv"]
+hardware    = "USB device port (native USB on every board)"
+features    = ["usb","cdc"]
+status      = "builds; untested on hardware"

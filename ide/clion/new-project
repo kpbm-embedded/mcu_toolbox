@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# new-project <sdk> <name> [target] [example] [--force]
+# Creates mcu/projects/<name> as a CLion project by copying the SDK example (the SDK is never edited).
+set -euo pipefail
+exec "$(cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")" && pwd)/mcu-ide" new "$@"

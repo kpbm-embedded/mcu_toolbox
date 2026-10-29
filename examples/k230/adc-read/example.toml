@@ -1,0 +1,7 @@
+name        = "adc-read"
+sdk         = "k230"
+description = "Read the six channels of the 12-bit SAR ADC once a second and print raw counts and millivolts (1.8 V reference)"
+targets     = ["k230_rtos_01studio", "k230d_rtos_bpi_zero"]
+hardware    = "K230 CanMV 01Studio-style 1GB (k230_rtos_01studio), BPI-CanMV-K230D-Zero (k230d_rtos_bpi_zero); RT-Smart user-space app; dedicated ADC input balls (no FPIOA); which header pins reach them is unverified"
+features    = ["adc", "drv_adc"]
+status      = "builds; untested on hardware"

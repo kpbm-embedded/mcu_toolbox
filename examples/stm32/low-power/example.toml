@@ -1,0 +1,7 @@
+name        = "low-power"
+sdk         = "stm32"
+description = "Stop mode with EXTI wakeup on the user button; clock tree restored after wake"
+targets     = ["blackpill-f411", "weact-g431", "mini-h743", "bluepill-f103"]
+hardware    = "User button: BlackPill KEY PA0 (active low); WeAct G431 / H743 PC13 (active high); BluePill: button PA0 to 3V3 (BluePill+ KEY unverified)"
+features    = ["pwr", "stop-mode", "exti", "wakeup"]
+status      = "builds; untested on hardware"

@@ -1,0 +1,7 @@
+name        = "adc-read"
+sdk         = "avr"
+description = "Read A0 and print the raw value and millivolts; ATmega328P also prints the internal temperature sensor raw value"
+targets     = ["nano", "nano-old", "mega", "attiny85"]
+hardware    = "Potentiometer wiper on A0 (Nano PC0, Mega PF0) / ATtiny85 A3 = PB3, ends to 5V/GND; ATtiny85 output on software Serial TX PB0 at 9600"
+features    = ["adc", "uart"]
+status      = "builds; untested on hardware"

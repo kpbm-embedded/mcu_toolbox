@@ -1,0 +1,7 @@
+name        = "uart-hello"
+sdk         = "bouffalo"
+description = "Console UART0 banner, periodic hello and character echo"
+targets     = ["bl616", "bl702", "bl808"]
+hardware    = "Sipeed M0s Dock BL616 / Ai-M62; Sipeed M0sense BL702; Sipeed M1s Dock BL808 (M0 core, legacy SDK). Console UART0: bl616 TX GPIO21 RX GPIO22, bl702 TX GPIO14 RX GPIO15 (SDK board.c); bl808 per bsp/board/bl808dk/board.c"
+features    = ["uart", "mtimer"]
+status      = "builds; untested on hardware"

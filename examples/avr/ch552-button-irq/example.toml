@@ -1,0 +1,7 @@
+name        = "ch552-button-irq"
+sdk         = "avr"
+description = "Button on P3.2 (INT0, falling edge) toggles the LED on P3.3; press count over USB CDC"
+targets     = ["ch552"]
+hardware    = "CH552T board: button P3.2 (INT0) to GND, LED P3.3 (CH55xDuino pins 32/33)"
+features    = ["gpio", "interrupt", "usb-cdc"]
+status      = "builds; untested on hardware"

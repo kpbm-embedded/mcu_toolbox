@@ -1,0 +1,7 @@
+name        = "adc-read"
+sdk         = "esp-idf"
+description = "ADC1 oneshot read with calibration, plus the internal temperature sensor"
+targets     = ["esp32", "esp32s3", "esp32c3", "esp32c6", "esp32p4"]
+hardware    = "Analog source (pot wiper) on ADC1 channel 0: ESP32 GPIO36 (no die temp sensor), S3 GPIO1, C3 GPIO0, C6 GPIO0, P4 GPIO16"
+features    = ["adc", "tsens"]
+status      = "builds; untested on hardware"

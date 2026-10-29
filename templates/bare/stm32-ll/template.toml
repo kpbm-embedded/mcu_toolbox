@@ -1,0 +1,5 @@
+name        = "stm32-ll"
+sdk         = "bare"
+description = "STM32 Low-Layer (LL) drivers from the Cube pack without HAL, on the bare chip layer: GPIO and USART set up with LL, run in Renode"
+targets     = ["stm32f411", "stm32f103", "stm32h743"]
+default_target = "stm32f411"

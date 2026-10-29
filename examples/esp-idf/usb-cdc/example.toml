@@ -1,0 +1,7 @@
+name        = "usb-cdc"
+sdk         = "esp-idf"
+description = "USB-Serial-JTAG as a CDC serial port: echo via the usb_serial_jtag driver"
+targets     = ["esp32s3", "esp32c3", "esp32c6", "esp32p4"]
+hardware    = "Native USB connector (S3-Zero, C3 SuperMini/Zero, C6 and P4 USB-Serial-JTAG pins); appears as /dev/ttyACM*"
+features    = ["usb_serial_jtag", "cdc"]
+status      = "builds; untested on hardware"

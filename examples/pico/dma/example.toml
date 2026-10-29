@@ -1,0 +1,7 @@
+name        = "dma"
+sdk         = "pico"
+description = "DMA memory-to-memory copy with checksum and timing"
+targets     = ["pico", "zero", "pico2", "pico2-riscv", "rp2350-zero", "rp2350-zero-riscv"]
+hardware    = "no external hardware"
+features    = ["dma"]
+status      = "builds; untested on hardware"

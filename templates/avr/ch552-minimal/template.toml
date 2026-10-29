@@ -1,0 +1,7 @@
+name        = "ch552-minimal"
+sdk         = "avr"
+description = "CH55xDuino sketch for CH552: blink plus USB CDC heartbeat"
+targets     = ["ch552"]
+default_target = "ch552"
+[vars]
+LED_PIN = { ch552 = "33" }

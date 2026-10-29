@@ -1,0 +1,7 @@
+name        = "adc-read"
+sdk         = "pico"
+description = "Read ADC0 (GP26) and the internal temperature sensor"
+targets     = ["pico", "zero", "pico2", "pico2-riscv", "rp2350-zero", "rp2350-zero-riscv"]
+hardware    = "ADC0 on GP26 (all boards); internal temperature sensor is ADC channel 4"
+features    = ["adc","temperature"]
+status      = "builds; untested on hardware"

@@ -1,0 +1,7 @@
+name        = "pwm-fade"
+sdk         = "bouffalo"
+description = "PWM channel 0 duty ramps up and down at 1 kHz"
+targets     = ["bl616", "bl702", "bl808"]
+hardware    = "Sipeed M0s Dock BL616 / Ai-M62; Sipeed M0sense BL702; Sipeed M1s Dock BL808 (M0 core, legacy SDK). board_pwm_gpio_init(): bl616 PWM_V2 CH0 = GPIO24, bl702 PWM_V1 CH0 = GPIO0, bl808 PWM_V2 CH0 = GPIO24 (unverified) (SDK dk board files). Wire an LED + resistor to that pin"
+features    = ["pwm"]
+status      = "builds; untested on hardware"

@@ -1,0 +1,7 @@
+name        = "ch552-pwm-fade"
+sdk         = "avr"
+description = "Fade an external LED with analogWrite() on P3.4 (PWM2)"
+targets     = ["ch552"]
+hardware    = "CH552T board: external LED + 1k from P3.4 (PWM2) to GND"
+features    = ["pwm"]
+status      = "builds; untested on hardware"

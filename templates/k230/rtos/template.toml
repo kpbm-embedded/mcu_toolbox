@@ -1,0 +1,8 @@
+name           = "rtos"
+sdk            = "k230"
+description    = "RT-Smart app with two pthreads exchanging messages through a mutex/condvar queue"
+targets        = ["k230_rtos_01studio", "k230d_rtos_bpi_zero"]
+default_target = "k230_rtos_01studio"
+[boards]
+k230_rtos_01studio  = "K230 CanMV 01Studio-style 1GB"
+k230d_rtos_bpi_zero = "BPI-CanMV-K230D-Zero"

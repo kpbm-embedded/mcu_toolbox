@@ -1,0 +1,8 @@
+name        = "low-power"
+sdk         = "k210"
+description = "Clock reduction (CPU 100 MHz, PLL1 and KPU clock off) plus WFI idle; TIMER0 every 2 s or the BOOT key wakes the core"
+targets     = ["m1n", "cm1"]
+runtime     = "standalone"
+hardware    = "Sipeed M1n Maix Nano / CM-1 K210 CanMV: RGB LED IO12/13/14 (active low), BOOT key IO16 (pins unconfirmed, see README)"
+features    = ["sysctl", "pll", "clock-gating", "wfi", "timer", "gpiohs", "irq"]
+status      = "builds; untested on hardware"

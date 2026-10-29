@@ -1,0 +1,7 @@
+name        = "ch552-uart-hello"
+sdk         = "avr"
+description = "UART0 (Serial0) TX P3.1 / RX P3.0 at 115200: greeting, echo and a counter per second"
+targets     = ["ch552"]
+hardware    = "CH552T board: USB-UART adapter on P3.1 (TX) / P3.0 (RX), GND; LED P3.3"
+features    = ["uart"]
+status      = "builds; untested on hardware"

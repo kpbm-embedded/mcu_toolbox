@@ -1,0 +1,7 @@
+name        = "ch552-adc-read"
+sdk         = "avr"
+description = "Read the 8-bit ADC on P1.1 (AIN0) and print raw and mV over USB CDC"
+targets     = ["ch552"]
+hardware    = "CH552T board: potentiometer wiper on P1.1 (AIN0), ends to VDD/GND"
+features    = ["adc", "usb-cdc"]
+status      = "builds; untested on hardware"

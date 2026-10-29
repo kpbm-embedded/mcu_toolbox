@@ -1,0 +1,7 @@
+name        = "cxx-bare"
+sdk         = "bare"
+description = "C++ without an OS: static constructors (init_array), virtual functions, templates and placement new; no exceptions/RTTI/heap"
+targets     = ["mps2-an385", "virt-rv32", "stm32f411"]
+hardware    = "none: qemu/Renode models; board pins in chips/<chip>/chip.c"
+features    = ["c++", "constructors", "init_array"]
+status      = "tested in qemu/Renode (check.sh bare); not run on a board"

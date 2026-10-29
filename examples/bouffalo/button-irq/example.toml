@@ -1,0 +1,7 @@
+name        = "button-irq"
+sdk         = "bouffalo"
+description = "Falling-edge GPIO interrupt from the BOOT key toggles the LED"
+targets     = ["bl616", "bl702", "bl808"]
+hardware    = "Sipeed M0s Dock BL616 / Ai-M62; Sipeed M0sense BL702; Sipeed M1s Dock BL808 (M0 core, legacy SDK). BTN_PIN (BOOT key, active low) GPIO2 on bl616 and bl702 (unverified for bl702), bl808 GPIO22 (unverified); LED_PIN as in blink"
+features    = ["gpio", "irq"]
+status      = "builds; untested on hardware"

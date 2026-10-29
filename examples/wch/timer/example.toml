@@ -1,0 +1,7 @@
+name        = "timer"
+sdk         = "wch"
+description = "TIM1 update interrupt every 500 ms toggles the LED"
+targets     = ["ch32v003", "ch32v203", "ch32v307", "ch32h417"]
+hardware    = "CH32V003 (WeAct F4U6 / EVT), CH32V203 (WeAct BluePill Plus C8T6), CH32V307V-R1, CH32H417; pins in board.h"
+features    = ["timer", "irq", "nvic"]
+status      = "builds; untested on hardware"

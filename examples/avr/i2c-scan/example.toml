@@ -1,0 +1,7 @@
+name        = "i2c-scan"
+sdk         = "avr"
+description = "Scan the I2C bus and print the addresses that ACK"
+targets     = ["nano", "nano-old", "mega", "attiny85"]
+hardware    = "I2C devices on SDA/SCL: Nano A4/A5, Mega D20/D21, ATtiny85 USI SDA PB0 / SCL PB2 (4.7k pull-ups on the bus); ATtiny85 output on software Serial TX moved to PB3, 9600"
+features    = ["i2c", "uart"]
+status      = "builds; untested on hardware"

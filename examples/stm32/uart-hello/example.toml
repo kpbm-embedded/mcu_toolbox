@@ -1,0 +1,7 @@
+name        = "uart-hello"
+sdk         = "stm32"
+description = "printf over USART1 plus a polled echo of received bytes"
+targets     = ["blackpill-f411", "weact-g431", "mini-h743", "bluepill-f103"]
+hardware    = "USB-UART adapter on PA9 (TX) / PA10 (RX), GND common"
+features    = ["uart", "printf"]
+status      = "builds; untested on hardware"

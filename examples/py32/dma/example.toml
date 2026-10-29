@@ -1,0 +1,7 @@
+name        = "dma"
+sdk         = "py32"
+description = "DMA1 channel 1 memory-to-memory copy with transfer-complete interrupt, result checked and printed"
+targets     = ["py32f003x8", "py32f030x8"]
+hardware    = "No external pins; USART1 PA2/PA3 for output (Puya LL example pins, unconfirmed for the owned boards)"
+features    = ["dma", "irq", "usart"]
+status      = "builds; untested on hardware"

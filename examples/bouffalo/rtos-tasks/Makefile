@@ -1,0 +1,9 @@
+SDK_DEMO_PATH ?= $(abspath .)
+BL_SDK_BASE ?= $(abspath ../..)
+
+export BL_SDK_BASE
+
+# bouffalo/env.sh puts the Xuantie riscv64-unknown-elf toolchain on PATH
+CROSS_COMPILE ?= riscv64-unknown-elf-
+
+include $(BL_SDK_BASE)/project.build

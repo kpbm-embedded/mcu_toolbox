@@ -1,0 +1,20 @@
+cmake_minimum_required(VERSION 3.5)
+# Out-of-tree project: cmake -S . -B build -DSDK=<kendryte-standalone-sdk> -DTOOLCHAIN=<toolchain/bin> -DBOARD=m1n|cm1 -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+if(NOT SDK)
+  message(FATAL_ERROR "pass -DSDK=/path/to/kendryte-standalone-sdk")
+endif()
+include(${SDK}/cmake/common.cmake)
+include(${SDK}/cmake/macros.internal.cmake OPTIONAL)
+project(pwm-fade C CXX ASM)
+if(NOT BOARD)
+  set(BOARD m1n)
+endif()
+string(TOUPPER ${BOARD} BOARD_UC)
+add_definitions(-DBOARD_${BOARD_UC}=1)
+add_source_files(main.c)
+# the standalone SDK's executable.cmake calls add_subdirectory(lib) without a binary dir, which fails out of tree:
+# build the library ourselves, then tell executable.cmake the work is done.
+header_directories(${SDK}/lib)
+add_subdirectory(${SDK}/lib SDK)
+set(BUILDING_SDK yes)
+include(${SDK}/cmake/executable.cmake)

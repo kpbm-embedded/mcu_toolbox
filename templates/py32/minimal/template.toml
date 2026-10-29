@@ -1,0 +1,10 @@
+name           = "minimal"
+sdk            = "py32"
+description    = "PY32F0xx LL project (F071: HAL): blink the LED, printf over the debug UART; Makefile reads the Puya libs from py32f0-template"
+targets        = ["py32f003x8", "py32f002ax5", "py32f030x8", "py32f071x8"]
+default_target = "py32f003x8"
+[boards]
+py32f003x8  = "PY32F003x8 dev board"
+py32f002ax5 = "PY32F002Ax5 dev board"
+py32f030x8  = "PY32F030x8 chip"
+py32f071x8  = "PY32F071x8 chip"

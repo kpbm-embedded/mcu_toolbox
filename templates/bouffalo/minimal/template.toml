@@ -1,0 +1,8 @@
+name        = "minimal"
+sdk         = "bouffalo"
+description = "Bouffalo SDK v2 app for BL616 / BL702: blink a GPIO LED and log on the console UART"
+targets     = ["bl616", "bl702"]
+default_target = "bl616"
+[vars]
+LED_PIN = { bl616 = "27", bl702 = "22" }
+BOARD_NOTE = { bl616 = "Sipeed M0s Dock / Ai-M62 (BL616)", bl702 = "Sipeed M0sense (BL702)" }

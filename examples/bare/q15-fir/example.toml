@@ -1,0 +1,7 @@
+name        = "q15-fir"
+sdk         = "bare"
+description = "Fixed-point Q15 FIR filter checked against a float reference on the target (soft float on M3/RV32, FPU on the F411)"
+targets     = ["mps2-an385", "stm32f411", "virt-rv32"]
+hardware    = "none: qemu/Renode models; board pins in chips/<chip>/chip.c"
+features    = ["dsp", "q15", "fpu", "fixed-point"]
+status      = "tested in qemu/Renode (check.sh bare); not run on a board"

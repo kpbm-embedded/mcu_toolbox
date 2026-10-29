@@ -1,0 +1,24 @@
+{
+  "kind": "cmake",
+  "env_sdk": "k210",
+  "cmake_project": "k210-hello",
+  "target": "k210-hello",
+  "elf": "k210-hello",
+  "flash": {
+    "how": "mcu",
+    "sdk": "k210",
+    "target": "cm1",
+    "example": "k210-hello",
+    "stage": "{gen}"
+  },
+  "monitor": [
+    "k210"
+  ],
+  "debug": null,
+  "debug_skip": "the workspace has no K210-capable OpenOCD (needs kendryte's fork + a JTAG adapter)",
+  "about": "K210 standalone SDK hello_world",
+  "sdk": "k210",
+  "name": "k210-hello",
+  "sdk_target": "cm1",
+  "example": "hello_world"
+}

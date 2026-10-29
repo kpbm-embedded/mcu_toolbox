@@ -1,0 +1,5 @@
+name        = "nrf52840-uf2"
+sdk         = "bare"
+description = "nice!nano / Pro Micro nRF52840 app for the Adafruit UF2 bootloader (S140 below: app at 0x26000), .uf2 output checked"
+targets     = ["nrf52840"]
+default_target = "nrf52840"

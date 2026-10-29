@@ -1,0 +1,7 @@
+name        = "ch552-blink"
+sdk         = "avr"
+description = "Blink the CH552 LED"
+targets     = ["ch552"]
+hardware    = "CH552T board: LED on P3.3 (CH55xDuino pin 33)"
+features    = ["gpio", "delay"]
+status      = "builds; untested on hardware"

@@ -1,0 +1,36 @@
+{
+  "kind": "cmake",
+  "env_sdk": "esp-idf",
+  "cmake_project": "blink",
+  "target": "app",
+  "elf": "blink.elf",
+  "flash": {
+    "how": "esptool",
+    "sdk": "esp-idf",
+    "chip": "esp32s3"
+  },
+  "monitor": [
+    "esp-idf"
+  ],
+  "monitor_cmd": [
+    "run",
+    "esp-idf",
+    "--",
+    "python",
+    "-m",
+    "esp_idf_monitor",
+    "--target",
+    "esp32s3",
+    "--toolchain-prefix",
+    "xtensa-esp32s3-elf-",
+    "{port:-p}",
+    "{elf}"
+  ],
+  "debug": null,
+  "debug_skip": "Xtensa core: CLion's bundled GDB has no Xtensa support; use 'idf.py openocd' + xtensa-esp32s3-elf-gdb from the IDF tools (mcu shell esp-idf)",
+  "about": "ESP-IDF get-started/blink for esp32s3",
+  "sdk": "esp-idf",
+  "name": "esp32s3-blink",
+  "sdk_target": "esp32s3",
+  "example": ""
+}

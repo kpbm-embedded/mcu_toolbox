@@ -1,0 +1,7 @@
+name        = "button-irq"
+sdk         = "pico"
+description = "GPIO interrupt on a button toggles the LED"
+targets     = ["pico", "zero", "pico2", "pico2-riscv", "rp2350-zero", "rp2350-zero-riscv"]
+hardware    = "Button GP14 to GND (internal pull-up); LED per board (see README)"
+features    = ["gpio","irq"]
+status      = "builds; untested on hardware"

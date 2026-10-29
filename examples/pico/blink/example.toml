@@ -1,0 +1,7 @@
+name        = "blink"
+sdk         = "pico"
+description = "Blink the board LED once per 500 ms"
+targets     = ["pico", "zero", "pico2", "pico2-riscv", "rp2350-zero", "rp2350-zero-riscv"]
+hardware    = "Pico/Pico 2: on-board LED GPIO25; Zero boards: external LED on GP15"
+features    = ["gpio"]
+status      = "builds; untested on hardware"

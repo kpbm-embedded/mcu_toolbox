@@ -1,0 +1,7 @@
+name        = "wifi-scan"
+sdk         = "esp-idf"
+description = "Station-mode Wi-Fi scan, prints SSID/RSSI/channel"
+targets     = ["esp32", "esp32s3", "esp32c3", "esp32c6"]
+hardware    = "none (on-chip radio; ESP32-P4 has no Wi-Fi, so not a target)"
+features    = ["wifi", "nvs", "esp_event"]
+status      = "builds; untested on hardware"

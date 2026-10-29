@@ -1,0 +1,7 @@
+name        = "timer"
+sdk         = "stm32"
+description = "TIM2 update interrupt at 1 Hz blinks the LED"
+targets     = ["blackpill-f411", "weact-g431", "mini-h743", "bluepill-f103"]
+hardware    = "on-board LED"
+features    = ["tim", "irq"]
+status      = "builds; untested on hardware"

@@ -1,0 +1,7 @@
+name        = "usb-cdc"
+sdk         = "stm32"
+description = "USB CDC-ACM virtual COM port echo, ST Cube USB Device middleware"
+targets     = ["blackpill-f411", "weact-g431", "mini-h743", "bluepill-f103"]
+hardware    = "Board USB connector (PA11 DM / PA12 DP) to a host; optional USB-UART on PA9 for the byte-count log"
+features    = ["usb", "cdc", "otg-fs", "usb-fs-device"]
+status      = "builds; untested on hardware"

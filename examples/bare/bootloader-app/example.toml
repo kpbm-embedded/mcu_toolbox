@@ -1,0 +1,7 @@
+name        = "bootloader-app"
+sdk         = "bare"
+description = "Two images in one flash: a bootloader at 0x0 checks the CRC-32 of an app at 0x10000, then sets VTOR/MSP and jumps"
+targets     = ["mps2-an385"]
+hardware    = "none: qemu/Renode models; board pins in chips/<chip>/chip.c"
+features    = ["bootloader", "vtor", "crc32", "linker-script"]
+status      = "tested in qemu/Renode (check.sh bare); not run on a board"

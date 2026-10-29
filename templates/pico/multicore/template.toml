@@ -1,0 +1,7 @@
+name        = "multicore"
+sdk         = "pico"
+description = "Two cores: core 1 blinks the LED and feeds core 0 through the SIO FIFO"
+targets     = ["pico", "zero", "pico2", "pico2-riscv", "rp2350-zero", "rp2350-zero-riscv"]
+default_target = "pico"
+[vars]
+LED_PIN = { pico = "25", zero = "15", pico2 = "25", pico2-riscv = "25", rp2350-zero = "15", rp2350-zero-riscv = "15" }

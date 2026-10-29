@@ -1,0 +1,7 @@
+name        = "fault-decode"
+sdk         = "bare"
+description = "UsageFault decoding: divide-by-zero and unaligned-access traps, CFSR bits and the stacked PC, then resume"
+targets     = ["mps2-an385"]
+hardware    = "none: qemu/Renode models; board pins in chips/<chip>/chip.c"
+features    = ["usagefault", "cfsr", "exception-frame"]
+status      = "tested in qemu/Renode (check.sh bare); not run on a board"

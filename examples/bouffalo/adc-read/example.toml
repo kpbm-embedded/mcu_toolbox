@@ -1,0 +1,7 @@
+name        = "adc-read"
+sdk         = "bouffalo"
+description = "Read one external ADC channel once a second"
+targets     = ["bl616", "bl702", "bl808"]
+hardware    = "Sipeed M0s Dock BL616 / Ai-M62; Sipeed M0sense BL702; Sipeed M1s Dock BL808 (M0 core, legacy SDK). bl616 ADC_CH3 = GPIO3 (bsp/board/bl616dk/board_gpio.c); bl702 ADC_CH0, its GPIO is not stated by the SDK (datasheet) - unverified; bl808 ADC_CH3 = GPIO11 (legacy bsp/board/bl808dk/board.c)"
+features    = ["adc"]
+status      = "builds; untested on hardware"

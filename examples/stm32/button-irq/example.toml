@@ -1,0 +1,7 @@
+name        = "button-irq"
+sdk         = "stm32"
+description = "External interrupt on the user button toggles the LED (EXTI, NVIC, debounce)"
+targets     = ["blackpill-f411", "weact-g431", "mini-h743", "bluepill-f103"]
+hardware    = "BlackPill KEY PA0 (active low); WeAct G431 and H743 boards: PC13 (active high); BluePill: button PA0 to 3V3 (BluePill+ on-board KEY unverified)"
+features    = ["gpio", "exti", "nvic"]
+status      = "builds; untested on hardware"

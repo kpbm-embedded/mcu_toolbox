@@ -1,0 +1,7 @@
+name        = "low-power"
+sdk         = "k230"
+description = "CPU DVFS via the K230 PM API: list the CPU frequency/voltage profiles, run 10 s at the lowest one under the manual governor, then restore"
+targets     = ["k230_rtos_01studio", "k230d_rtos_bpi_zero"]
+hardware    = "K230 CanMV 01Studio-style 1GB (k230_rtos_01studio), BPI-CanMV-K230D-Zero (k230d_rtos_bpi_zero); RT-Smart user-space app; no pins"
+features    = ["pm", "dvfs", "low-power"]
+status      = "builds; untested on hardware"

@@ -1,0 +1,62 @@
+# mcu: only sources go into git. SDKs, toolchains, emulators and vendor apps are installed again from config/pins.tsv
+# (`mcu setup install <group>`, sha256 / git commit checked); devtools (shellcheck, shfmt, bats) by `mcu devtools install`.
+/build/
+/cache/
+/vendor_apps/
+# symlinks into sibling IDs (32_04_freertos, 32_03_zephyr): made by `mcu setup links` when those IDs exist
+/tool/freertos
+/tool/zephyr
+/examples/freertos
+/examples/zephyr
+/projects/freertos-blinky-f411
+/projects/zephyr-blinky-blackpill
+# vendored test framework: `mcu devtools install` fetches bats-core (pinned sha256)
+/tool/tests/bats
+/tool/tests/bats-core-*
+# CLion: GoogleTest comes from the pins (googletest), cmake.xml holds one machine's absolute paths
+/ide/clion/third_party/
+/ide/clion/workspace/
+/projects/*/.idea/cmake.xml
+/projects/*/.idea/workspace.xml
+# toolchain/: keep only this ID's own files (plugins, env.sh, READMEs, board layers, scripts, udev rules)
+/toolchain/*/*
+!/toolchain/*/sdk.sh
+!/toolchain/*/sdk-common.sh
+!/toolchain/*/env.sh
+!/toolchain/*/README.md
+!/toolchain/*/VERSIONS.md
+!/toolchain/*/.update-sha256
+!/toolchain/*/udev/
+!/toolchain/esp-idf/install.sh
+!/toolchain/pico/build.sh
+!/toolchain/host/sysbin.list
+!/toolchain/host/patch-rpath.sh
+!/toolchain/host/update-lib.sh
+!/toolchain/host/libcheck.py
+!/toolchain/stm32/boards/
+!/toolchain/stm32/examples/
+!/toolchain/avr/baremetal/
+!/toolchain/avr/cfg/
+!/toolchain/avr/sketches/
+!/toolchain/avr/sketches-ch552/
+!/toolchain/k230/manifest-frozen-*.xml
+!/toolchain/k230/k230-docker.sh
+!/toolchain/k230/scripts/
+!/toolchain/k230/docker/
+!/toolchain/wch/evt-v203-gpio/
+!/toolchain/bare/cmake/
+!/toolchain/bare/chips/
+!/toolchain/bare/run/
+# anywhere: build trees, caches, logs
+cmake-build-*/
+__pycache__/
+*.pyc
+*.log
+.venv/
+.pixi/
+# build products and listings that were left next to sources
+*.lst
+*.elf
+*.hex
+*.map
+*.o

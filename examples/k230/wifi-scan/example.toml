@@ -1,0 +1,7 @@
+name        = "wifi-scan"
+sdk         = "k230"
+description = "Wi-Fi station scan through the RT-Smart network manager (hal_netmgmt): SSID, RSSI, channel, BSSID"
+targets     = ["k230_rtos_01studio", "k230d_rtos_bpi_zero"]
+hardware    = "K230 CanMV 01Studio-style 1GB (k230_rtos_01studio), BPI-CanMV-K230D-Zero (k230d_rtos_bpi_zero); RT-Smart user-space app; on-board Wi-Fi module (01studio: AIC8800 on SDIO, REG_ON IO53; BPI zero: Realtek on SDIO0, per kernel defconfigs)"
+features    = ["wifi", "wlan-scan", "netmgmt"]
+status      = "builds; untested on hardware"

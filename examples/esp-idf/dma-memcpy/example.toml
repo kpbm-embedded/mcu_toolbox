@@ -1,0 +1,7 @@
+name        = "dma-memcpy"
+sdk         = "esp-idf"
+description = "Memory-to-memory DMA with the async_memcpy driver (GDMA), verified and timed against CPU memcpy"
+targets     = ["esp32s3", "esp32c3", "esp32c6", "esp32p4"]
+hardware    = "none (log only); needs a GDMA async-memcpy engine (not on classic ESP32)"
+features    = ["dma", "gdma", "async_memcpy"]
+status      = "builds; untested on hardware"

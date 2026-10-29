@@ -1,0 +1,10 @@
+name           = "minimal"
+sdk            = "wch"
+description    = "ch32fun project: blink the LED and print over USART1; one Makefile for CH32V003 / V203 / V307 / H417"
+targets        = ["ch32v003", "ch32v203", "ch32v307", "ch32h417"]
+default_target = "ch32v203"
+[boards]
+ch32v003 = "CH32V003 (WeAct F4U6 / EVT)"
+ch32v203 = "CH32V203 (WeAct BluePill Plus C8T6)"
+ch32v307 = "CH32V307V-R1"
+ch32h417 = "CH32H417"

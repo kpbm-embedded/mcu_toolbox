@@ -1,0 +1,7 @@
+name        = "usb-cdc"
+sdk         = "k230"
+description = "USB CDC-ACM device: echo (upper-cased) everything the host sends on /dev/ttyGS0, the kernel CherryUSB gadget serial port"
+targets     = ["k230_rtos_01studio", "k230d_rtos_bpi_zero"]
+hardware    = "K230 CanMV 01Studio-style 1GB (k230_rtos_01studio), BPI-CanMV-K230D-Zero (k230d_rtos_bpi_zero); RT-Smart user-space app; USB device (OTG) connector to the host PC"
+features    = ["usb", "cdc-acm", "posix-io", "poll"]
+status      = "builds; untested on hardware"

@@ -1,0 +1,7 @@
+name        = "arduino-minimal"
+sdk         = "avr"
+description = "Arduino sketch: blink the LED and print a heartbeat over UART where the chip has one"
+targets     = ["nano", "nano-old", "mega", "attiny85"]
+default_target = "nano"
+[vars]
+LED_PIN = { nano = "13", nano-old = "13", mega = "13", attiny85 = "1" }

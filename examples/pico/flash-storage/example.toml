@@ -1,0 +1,7 @@
+name        = "flash-storage"
+sdk         = "pico"
+description = "Persist a boot counter in the last flash sector"
+targets     = ["pico", "zero", "pico2", "pico2-riscv", "rp2350-zero", "rp2350-zero-riscv"]
+hardware    = "no external hardware"
+features    = ["flash","storage"]
+status      = "builds; untested on hardware"

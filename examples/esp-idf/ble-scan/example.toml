@@ -1,0 +1,7 @@
+name        = "ble-scan"
+sdk         = "esp-idf"
+description = "NimBLE passive scan, prints advertiser address and RSSI"
+targets     = ["esp32", "esp32s3", "esp32c3", "esp32c6"]
+hardware    = "none (on-chip BLE; P4 has no radio)"
+features    = ["ble", "nimble", "nvs"]
+status      = "builds; untested on hardware"

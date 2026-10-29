@@ -1,0 +1,7 @@
+name        = "rtos-tasks"
+sdk         = "py32"
+description = "FreeRTOS: LED task, producer/consumer over a queue, printf guarded by a mutex"
+targets     = ["py32f003x8", "py32f030x8", "py32f071x8"]
+hardware    = "LED PB5 + USART1 PA2/PA3 (F003/F030, Puya LL example pins); PY32F071x8 (HAL): LED PC13, USART2 PA2/PA3; all unconfirmed for the owned boards"
+features    = ["rtos", "freertos", "queue", "mutex"]
+status      = "builds; untested on hardware"

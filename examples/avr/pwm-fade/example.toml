@@ -1,0 +1,7 @@
+name        = "pwm-fade"
+sdk         = "avr"
+description = "Fade an LED up and down with analogWrite PWM"
+targets     = ["nano", "nano-old", "mega", "attiny85"]
+hardware    = "LED + 330R on PWM pin: Nano D9, Mega D9, ATtiny85 pin 1 (PB1, the on-board LED)"
+features    = ["pwm", "timer"]
+status      = "builds; untested on hardware"

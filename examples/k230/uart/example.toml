@@ -1,0 +1,7 @@
+name        = "uart"
+sdk         = "k230"
+description = "Loopback test on UART2 using the SDK's drv_uart: write a string on TX and read it back on RX (jumper TX to RX)"
+targets     = ["k230_rtos_01studio", "k230d_rtos_bpi_zero"]
+hardware    = "K230 CanMV 01Studio-style 1GB (k230_rtos_01studio), BPI-CanMV-K230D-Zero (k230d_rtos_bpi_zero); RT-Smart user-space app"
+features    = ["uart", "fpioa", "drv_uart"]
+status      = "builds; untested on hardware"

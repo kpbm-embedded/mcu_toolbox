@@ -1,0 +1,7 @@
+name        = "i2c-scan"
+sdk         = "pico"
+description = "Scan I2C0 for devices"
+targets     = ["pico", "zero", "pico2", "pico2-riscv", "rp2350-zero", "rp2350-zero-riscv"]
+hardware    = "I2C0 SDA=GP4 SCL=GP5 with pull-ups"
+features    = ["i2c"]
+status      = "builds; untested on hardware"

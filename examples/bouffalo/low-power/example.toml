@@ -1,0 +1,7 @@
+name        = "low-power"
+sdk         = "bouffalo"
+description = "Hibernate (HBN level 0) for 5 s with RTC wake-up, then reboot and repeat (SDK PM API)"
+targets     = ["bl616", "bl702"]
+hardware    = "Sipeed M0s Dock BL616 / Ai-M62; Sipeed M0sense BL702. LED_PIN as in blink (board_pins.h); measure current on the module supply to see the sleep phase"
+features    = ["low-power", "hbn", "rtc-wake"]
+status      = "builds; untested on hardware"

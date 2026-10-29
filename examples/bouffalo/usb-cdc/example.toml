@@ -1,0 +1,7 @@
+name        = "usb-cdc"
+sdk         = "bouffalo"
+description = "USB CDC-ACM echo device (CherryUSB)"
+targets     = ["bl616", "bl702"]
+hardware    = "Sipeed M0s Dock BL616 / Ai-M62; Sipeed M0sense BL702. USB: native USB pins of the module (bl616 HS OTG, bl702 FS); no GPIO config needed on the dk boards"
+features    = ["usb", "freertos"]
+status      = "builds; untested on hardware"

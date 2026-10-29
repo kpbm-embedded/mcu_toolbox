@@ -1,0 +1,7 @@
+name        = "adc-read"
+sdk         = "stm32"
+description = "Polled ADC: PA1, internal temperature sensor and VREFINT, printed each second"
+targets     = ["blackpill-f411", "weact-g431", "mini-h743", "bluepill-f103"]
+hardware    = "PA1 to a 0-3.3 V source or potentiometer wiper (F411 ADC1_IN1, F103 ADC1_IN1, G431 ADC1_IN2, H743 ADC1_INP17)"
+features    = ["adc", "tempsensor", "vrefint"]
+status      = "builds; untested on hardware"

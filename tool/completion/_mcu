@@ -1,0 +1,20 @@
+#compdef mcu
+# zsh completion for mcu: commands, SDK names, targets and examples (asked from `mcu __complete`).
+# Enable (mcu never edits rc files; add these to ~/.zshrc yourself to keep them):
+#   fpath=("$BOX_MCU/completion" $fpath)   (BOX_MCU: box_env.sh)
+#   autoload -Uz compinit && compinit
+#   compdef _mcu ./mcu        # also complete ./mcu typed inside the workspace
+
+_mcu() {
+  local mcu="${words[1]}" cur="${words[CURRENT]}"
+  local -a typed candidates
+  typed=("${(@)words[2,CURRENT-1]}")
+  if [[ "$cur" == -* ]]; then
+    candidates=("${(@f)$("$mcu" __complete flags 2>/dev/null)}")
+  else
+    candidates=("${(@f)$("$mcu" __complete next "${typed[@]}" 2>/dev/null)}")
+  fi
+  compadd -a candidates
+}
+
+_mcu "$@"

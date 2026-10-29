@@ -1,0 +1,9 @@
+name           = "rtos"
+sdk            = "py32"
+description    = "FreeRTOS (template's Libraries/FreeRTOS, 4 KB heap): LED task + queue producer/consumer + printf mutex"
+targets        = ["py32f003x8", "py32f030x8", "py32f071x8"]
+default_target = "py32f003x8"
+[boards]
+py32f003x8  = "PY32F003x8 dev board"
+py32f030x8  = "PY32F030x8 chip"
+py32f071x8  = "PY32F071x8 chip"

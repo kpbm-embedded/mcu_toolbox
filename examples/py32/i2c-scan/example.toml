@@ -1,0 +1,7 @@
+name        = "i2c-scan"
+sdk         = "py32"
+description = "Scan the I2C bus (0x08..0x77) every 3 s and print the addresses that ACK"
+targets     = ["py32f003x8", "py32f002ax5", "py32f030x8"]
+hardware    = "I2C1 SDA PF0 / SCL PF1 (AF12, Puya LL/I2C examples; F030 datasheet table 3.3), 4.7k pull-ups to 3.3 V; USART1 PA2/PA3 (unconfirmed for the owned boards)"
+features    = ["i2c", "usart"]
+status      = "builds; untested on hardware"

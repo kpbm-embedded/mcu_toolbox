@@ -1,0 +1,7 @@
+name        = "rtos-tasks"
+sdk         = "bouffalo"
+description = "FreeRTOS (SDK-shipped): blink task, producer/consumer over a queue, mutex-protected printf on the console UART"
+targets     = ["bl616", "bl702", "bl808"]
+hardware    = "Sipeed M0s Dock BL616 / Ai-M62; Sipeed M0sense BL702; Sipeed M1s Dock BL808 (M0 core, legacy SDK). LED_PIN as in blink (board_pins.h)"
+features    = ["freertos", "queue", "mutex", "gpio"]
+status      = "builds; untested on hardware"

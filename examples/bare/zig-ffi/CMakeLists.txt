@@ -1,0 +1,10 @@
+cmake_minimum_required(VERSION 3.20)
+# Zig logic (src/logic.zig, freestanding object built with the pinned Zig of 32_24_microzig) + C startup/chip layer.
+set(CHIP "mps2-an385" CACHE STRING "chip: mps2-an385 stm32f411 virt-rv32")
+include($ENV{MCU_BARE}/cmake/bare_chip.cmake)
+project(zig-ffi C ASM)
+include($ENV{MCU_BARE}/cmake/bare.cmake)
+include($ENV{MCU_BARE}/cmake/langs.cmake)
+add_executable(zig-ffi src/main.c)
+bare_zig_object(zig-ffi src/logic.zig)
+bare_firmware(zig-ffi)

@@ -1,0 +1,8 @@
+name        = "with-tests"
+sdk         = "stm32"
+description = "minimal + pure logic in src/logic.c with Unity host unit tests in tests/ (cmake --build --target host-tests)"
+targets     = ["blackpill-f411", "weact-g431", "mini-h743", "bluepill-f103"]
+default_target = "blackpill-f411"
+[vars]
+LED_PIN   = { blackpill-f411 = "PC13", weact-g431 = "PC6", mini-h743 = "PE3", bluepill-f103 = "PC13" }
+SYSCLK_MHZ = { blackpill-f411 = "100", weact-g431 = "144", mini-h743 = "400", bluepill-f103 = "72" }

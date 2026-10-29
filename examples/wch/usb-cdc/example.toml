@@ -1,0 +1,7 @@
+name        = "usb-cdc"
+sdk         = "wch"
+description = "USB CDC serial (virtual COM port) echo/tty demo: V203 via USBD, V307 via USBFS (ch32fun extralibs)"
+targets     = ["ch32v203", "ch32v307"]
+hardware    = "CH32V003 (WeAct F4U6 / EVT), CH32V203 (WeAct BluePill Plus C8T6), CH32V307V-R1, CH32H417; pins in board.h; USB connector, 8 MHz HSE crystal"
+features    = ["usb", "cdc", "ch32fun"]
+status      = "builds; untested on hardware"

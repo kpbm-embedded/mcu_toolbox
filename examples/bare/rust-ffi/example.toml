@@ -1,0 +1,7 @@
+name        = "rust-ffi"
+sdk         = "bare"
+description = "Rust (no_std staticlib, pinned rustc of 32_17_embedded_rust) linked with the C startup: checksum, sort, callback into C"
+targets     = ["mps2-an385", "stm32f411", "virt-rv32"]
+hardware    = "none: qemu (mps2-an385, riscv virt), Renode (STM32F411); needs 32_17_embedded_rust (skipped without it)"
+features    = ["rust", "ffi", "no_std", "staticlib"]
+status      = "tested in qemu/Renode (check.sh bare); not run on a board"

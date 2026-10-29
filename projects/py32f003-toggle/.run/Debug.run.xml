@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Debug (pyOCD GDB server)" type="com.jetbrains.cidr.embedded.customgdbserver.type" folderName="Firmware" factoryName="com.jetbrains.cidr.embedded.customgdbserver.factory" PROGRAM_PARAMS="gdbserver --pack $PROJECT_DIR$/../../toolchain/py32/py32f0-template/Misc/Puya.PY32F0xx_DFP.1.1.7.pack -t py32f003x8 --port 3333" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="py32f003-toggle" TARGET_NAME="firmware" CONFIG_NAME="Debug" version="1" RUN_PATH="$MCU_OUT_BASE/projects/py32f003-toggle/cmake-build-debug/fw/app.elf">
+    <custom-gdb-server version="1" gdb-connect="tcp:localhost:3333" executable="$PROJECT_DIR$/../../toolchain/py32/.venv/bin/pyocd" warmup-ms="500" download-type="ALWAYS" reset-cmd="monitor reset halt" reset-type="AFTER_DOWNLOAD">
+      <debugger kind="GDB" isBundled="true" />
+    </custom-gdb-server>
+    <method v="2">
+      <option name="CLION.COMPOUND.BUILD" enabled="true" />
+    </method>
+  </configuration>
+</component>

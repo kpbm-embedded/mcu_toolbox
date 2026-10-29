@@ -1,0 +1,7 @@
+name        = "ble-scan"
+sdk         = "bouffalo"
+description = "BLE observer: 10 s active scans printing address, RSSI and name of every advertiser"
+targets     = ["bl616"]
+hardware    = "Sipeed M0s Dock BL616 / Ai-M62. No pins (on-chip BLE radio; antenna on the module)"
+features    = ["ble", "freertos"]
+status      = "builds; untested on hardware"

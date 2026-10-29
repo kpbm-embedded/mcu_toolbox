@@ -1,0 +1,7 @@
+name        = "pio-ws2812"
+sdk         = "pico"
+description = "PIO drives a WS2812 on GPIO16 (on-board on the Zero boards, external strip on Pico/Pico 2) with a colour wheel"
+targets     = ["pico", "zero", "pico2", "pico2-riscv", "rp2350-zero", "rp2350-zero-riscv"]
+hardware    = "Waveshare RP2040-Zero / RP2350-Zero: onboard WS2812 on GPIO16; Pico / Pico 2: external WS2812 strip, DIN on GP16 (5 V or 3V3 per strip, common GND)"
+features    = ["pio","ws2812"]
+status      = "builds; untested on hardware"

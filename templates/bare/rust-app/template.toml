@@ -1,0 +1,5 @@
+name        = "rust-app"
+sdk         = "bare"
+description = "Rust no_std logic (pinned rustc of 32_17_embedded_rust, reached not copied) linked with the C startup through FFI"
+targets     = ["mps2-an385", "stm32f411", "virt-rv32"]
+default_target = "mps2-an385"

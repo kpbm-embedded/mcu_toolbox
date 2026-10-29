@@ -1,0 +1,7 @@
+name        = "timer"
+sdk         = "bouffalo"
+description = "Hardware timer0 compare interrupt every 100 ms"
+targets     = ["bl616", "bl702", "bl808"]
+hardware    = "Sipeed M0s Dock BL616 / Ai-M62; Sipeed M0sense BL702; Sipeed M1s Dock BL808 (M0 core, legacy SDK). No pins"
+features    = ["timer", "irq"]
+status      = "builds; untested on hardware"

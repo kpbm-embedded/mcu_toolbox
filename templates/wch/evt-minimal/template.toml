@@ -1,0 +1,7 @@
+name           = "evt-minimal"
+sdk            = "wch"
+description    = "WCH EVT-style (StdPeriph + debug.h) CH32V203C8T6 project: GPIO toggle with printf over USART1; uses the openwch EVT library read-only"
+targets        = ["ch32v203"]
+default_target = "ch32v203"
+[boards]
+ch32v203 = "CH32V203C8T6 (WeAct BluePill Plus)"

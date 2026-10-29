@@ -1,0 +1,7 @@
+name        = "blink"
+sdk         = "bouffalo"
+description = "Blink one GPIO LED and print a heartbeat on the console UART"
+targets     = ["bl616", "bl702", "bl808"]
+hardware    = "Sipeed M0s Dock BL616 / Ai-M62; Sipeed M0sense BL702; Sipeed M1s Dock BL808 (M0 core, legacy SDK). LED_PIN from board_pins.h: bl616 GPIO27 (M0s Dock / Ai-M62), bl702 GPIO22 (M0sense), bl808 GPIO8 (M1s Dock, M0 core)"
+features    = ["gpio", "mtimer", "uart"]
+status      = "builds; untested on hardware"

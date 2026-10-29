@@ -1,0 +1,7 @@
+name        = "nvs-storage"
+sdk         = "esp-idf"
+description = "Persistent boot counter and a string in NVS"
+targets     = ["esp32", "esp32s3", "esp32c3", "esp32c6", "esp32p4"]
+hardware    = "none"
+features    = ["nvs"]
+status      = "builds; untested on hardware"

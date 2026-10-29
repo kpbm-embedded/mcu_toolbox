@@ -1,0 +1,8 @@
+name        = "timer"
+sdk         = "k210"
+description = "Hardware timer interrupt at 500 ms toggles the LED; a second channel counts 100 ms ticks"
+targets     = ["m1n", "cm1"]
+runtime     = "standalone"
+hardware    = "Sipeed M1n Maix Nano / CM-1 K210 CanMV: RGB LED IO12/13/14 (active low), BOOT key IO16 (pins unconfirmed, see README)"
+features    = ["timer", "plic", "irq"]
+status      = "builds; untested on hardware"

@@ -1,0 +1,5 @@
+cmake-build-*/
+.idea/workspace.xml
+.idea/shelf/
+managed_components/
+dependencies.lock

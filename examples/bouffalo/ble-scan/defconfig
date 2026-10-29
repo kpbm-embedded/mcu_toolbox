@@ -1,0 +1,12 @@
+# BLE observer: settings as in bouffalo_sdk examples/btble/btble_cli/defconfig, minus CLI commands and BT settings storage
+# (blestack always compiles src/cli_cmds, which needs the shell headers)
+CONFIG_VSNPRINTF_FLOAT      =y
+CONFIG_VSNPRINTF_LONG_LONG  =y
+CONFIG_BFLB_LOG             =n
+CONFIG_FREERTOS             =y
+CONFIG_BLUETOOTH            =y
+CONFIG_SHELL                =y
+
+# BL616 controller library (BLE only, no BR/EDR), as examples/btble/central/defconfig
+CONFIG_RF                   =y
+CONFIG_BTBLECONTROLLER_LIB  =ble1m10s1bredr0

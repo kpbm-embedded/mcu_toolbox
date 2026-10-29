@@ -1,0 +1,7 @@
+name        = "mpu-stack-guard"
+sdk         = "bare"
+description = "MPU (PMSAv7) guard region below the stack: an overflow write raises MemManage, MMFAR names the address"
+targets     = ["mps2-an385"]
+hardware    = "none: qemu/Renode models; board pins in chips/<chip>/chip.c"
+features    = ["mpu", "memmanage", "stack-guard"]
+status      = "tested in qemu/Renode (check.sh bare); not run on a board"

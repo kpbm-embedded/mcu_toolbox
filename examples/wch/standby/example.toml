@@ -1,0 +1,7 @@
+name        = "standby"
+sdk         = "wch"
+description = "CH32V003 low-power demo: standby (deep sleep) with auto-wakeup from the AWU timer, ~every 1 s; V203/V307: standby woken by the WKUP pin PA0 or the IWDG (~5 s)"
+targets     = ["ch32v003", "ch32v203", "ch32v307"]
+hardware    = "CH32V003: no external pins (all GPIO pulled up), SDI printf; CH32V203/V307: WKUP key PA0, LED per board.h, SDI printf"
+features    = ["lowpower", "standby", "awu", "iwdg", "wkup"]
+status      = "builds; untested on hardware"

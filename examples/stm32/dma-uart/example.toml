@@ -1,0 +1,7 @@
+name        = "dma-uart"
+sdk         = "stm32"
+description = "USART1 echo with DMA: RX idle-line framed, TX via DMA"
+targets     = ["blackpill-f411", "weact-g431", "mini-h743", "bluepill-f103"]
+hardware    = "USB-UART adapter on PA9 (TX) / PA10 (RX)"
+features    = ["dma", "uart", "irq"]
+status      = "builds; untested on hardware"

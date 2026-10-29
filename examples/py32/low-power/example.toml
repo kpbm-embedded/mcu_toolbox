@@ -1,0 +1,7 @@
+name        = "low-power"
+sdk         = "py32"
+description = "Stop mode with wake-up by LPTIM1 (~1 s, LSI) or the key (EXTI); LED pulse and UART report per wake-up"
+targets     = ["py32f003x8", "py32f002ax5", "py32f030x8"]
+hardware    = "LED PB5, key PA12 to GND (internal pull-up), USART1 PA2/PA3 (Puya LL example pins, unconfirmed for the owned boards)"
+features    = ["low-power", "stop", "lptim", "exti"]
+status      = "builds; untested on hardware"

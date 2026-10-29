@@ -1,0 +1,5 @@
+name        = "fw-host-tests"
+sdk         = "bare"
+description = "Unit-test + firmware split: lib/ tested on the host with ctest (plain C asserts), the same code run on Arm and RISC-V"
+targets     = ["mps2-an385", "virt-rv32"]
+default_target = "mps2-an385"

@@ -1,0 +1,7 @@
+name        = "sleep-wdt"
+sdk         = "avr"
+description = "Watchdog interrupt wakes the MCU from power-down every 1 s to toggle the LED"
+targets     = ["nano", "nano-old", "mega", "attiny85"]
+hardware    = "Arduino Nano / Nano old-bootloader clone (ATmega328P): LED D13 = PB5; Mega 2560: LED D13 = PB7; ATtiny85 (8 MHz internal): LED PB1"
+features    = ["watchdog", "sleep", "low-power"]
+status      = "builds; untested on hardware"

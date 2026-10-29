@@ -1,0 +1,6 @@
+// nRF52840 (nice!nano v2 / Pro Micro nRF52840) for Renode: the stock model with the legacy, non-EasyDMA UART that
+// chips/nrf52840/chip.c drives (Renode's NRF52840.robot "NO_DMA" variant).
+using "platforms/cpus/nrf52840.repl"
+
+uart0:
+    easyDMA: false

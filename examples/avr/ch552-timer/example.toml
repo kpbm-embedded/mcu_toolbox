@@ -1,0 +1,7 @@
+name        = "ch552-timer"
+sdk         = "avr"
+description = "Timer2 auto-reload interrupt every 10 ms toggles the LED every 500 ms; counter over USB CDC"
+targets     = ["ch552"]
+hardware    = "CH552T board: LED P3.3 (CH55xDuino pin 33)"
+features    = ["timer", "interrupt"]
+status      = "builds; untested on hardware"

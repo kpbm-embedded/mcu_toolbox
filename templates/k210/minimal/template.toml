@@ -1,0 +1,9 @@
+name           = "minimal"
+sdk            = "k210"
+description    = "Bare-metal K210 (kendryte-standalone-sdk): blinks the green LED and prints over the ISP UART"
+targets        = ["m1n", "cm1"]
+default_target = "m1n"
+runtime        = "standalone"
+[boards]
+m1n = "Sipeed M1n Maix Nano"
+cm1 = "CM-1 K210 CanMV"

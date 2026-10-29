@@ -1,0 +1,7 @@
+name        = "hello-chips"
+sdk         = "bare"
+description = "One source on seven chips: console, .data/.bss init and printf, run in qemu or Renode"
+targets     = ["mps2-an385", "virt-rv32", "stm32f411", "stm32h743", "stm32f103", "nrf52840", "ch32v003"]
+hardware    = "none: qemu (mps2-an385, riscv virt) and Renode models; boards: BlackPill F411, mini H743, BluePill F103, nice!nano, CH32V003 (console UART pins in chips/<chip>/chip.c)"
+features    = ["startup", "linker-script", "uart", "qemu", "renode"]
+status      = "tested in qemu/Renode (check.sh bare); not run on a board"

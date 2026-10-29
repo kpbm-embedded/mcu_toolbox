@@ -1,0 +1,7 @@
+# Bouffalo ROM bootloader / Sipeed USB-UART (BL702 debugger, BL616 CDC); install to /etc/udev/rules.d/ (root)
+# 349b: verified, USB_BL_VENDOR_ID in bouffalo_sdk components/net/netbus/host_router/host_linux/bl_usb_eth.c.
+# 359f: NOT verified against any official Bouffalo/Sipeed source (no hit in the SDK tools); kept as a guess, drop if unused.
+SUBSYSTEM=="usb", ATTRS{idVendor}=="349b", MODE="0666"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="359f", MODE="0666"
+SUBSYSTEM=="tty", ATTRS{idVendor}=="349b", MODE="0666"
+SUBSYSTEM=="tty", ATTRS{idVendor}=="359f", MODE="0666"

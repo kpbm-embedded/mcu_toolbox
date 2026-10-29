@@ -1,0 +1,7 @@
+name        = "adc-read"
+sdk         = "py32"
+description = "Polled 12-bit ADC read of PA4 (channel 4), printed over USART1 as millivolts"
+targets     = ["py32f003x8", "py32f002ax5", "py32f030x8"]
+hardware    = "PY32F003x8 / PY32F002Ax5 dev boards, PY32F030x8 chip: LED PB5, key PA12, USART1 PA2/PA3, ADC PA4 (Puya LL example pins, unconfirmed for the owned boards)"
+features    = ["adc", "usart"]
+status      = "builds; untested on hardware"

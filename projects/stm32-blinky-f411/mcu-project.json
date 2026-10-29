@@ -1,0 +1,48 @@
+{
+  "kind": "cmake",
+  "env_sdk": "stm32",
+  "toolchain": "cmake/arm-none-eabi.cmake",
+  "cmake_project": "stm32-blinky-f411",
+  "target": "stm32-blinky-f411",
+  "elf": "stm32-blinky-f411.elf",
+  "debug": {
+    "label": "OpenOCD + ST-Link",
+    "exe": "../../toolchain/tools/xpack-openocd/bin/openocd",
+    "args": [
+      "-s",
+      "../../toolchain/tools/xpack-openocd/openocd/scripts",
+      "-f",
+      "interface/stlink.cfg",
+      "-f",
+      "target/stm32f4x.cfg",
+      "-c",
+      "gdb port 3333",
+      "-c",
+      "telnet port disabled",
+      "-c",
+      "tcl port disabled"
+    ],
+    "connect": "tcp:localhost:3333",
+    "reset": "monitor reset halt",
+    "check": [
+      "-c",
+      "shutdown"
+    ]
+  },
+  "debug_skip": null,
+  "flash": {
+    "how": "mcu",
+    "sdk": "stm32",
+    "target": "blackpill-f411",
+    "example": "stm32-blinky-f411",
+    "stage": "{gen}"
+  },
+  "monitor": [
+    "stm32"
+  ],
+  "about": "STM32CubeF4 HAL blinky (example blinky-f411)",
+  "sdk": "stm32",
+  "name": "stm32-blinky-f411",
+  "sdk_target": "",
+  "example": ""
+}

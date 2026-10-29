@@ -1,0 +1,5 @@
+name        = "cxx-app"
+sdk         = "bare"
+description = "C++ firmware without heap/exceptions/RTTI: static constructors, classes, templates; Cortex-M and RISC-V"
+targets     = ["mps2-an385", "virt-rv32", "stm32f411"]
+default_target = "mps2-an385"

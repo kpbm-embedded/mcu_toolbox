@@ -1,0 +1,28 @@
+/* Generic RV32 linker script body; chips/<chip>/link.ld defines MEMORY (FLASH, RAM) and includes this. */
+ENTRY(_start)
+_estack = ORIGIN(RAM) + LENGTH(RAM);
+_min_stack = DEFINED(_min_stack) ? _min_stack : 0x800;
+SECTIONS
+{
+  .init : { KEEP(*(.init)) } > FLASH
+  .text : {
+    *(.text*) *(.rodata*) *(.srodata*)
+    . = ALIGN(4);
+    __init_array_start = .; KEEP(*(SORT(.init_array.*))) KEEP(*(.init_array*)) __init_array_end = .;
+    . = ALIGN(4);
+  } > FLASH
+  _sidata = LOADADDR(.data);
+  .data : {
+    . = ALIGN(4); _sdata = .;
+    *(.ramfunc*) *(.data*)
+    . = ALIGN(4);
+    __global_pointer$ = . + 0x800;
+    *(.sdata*)
+    . = ALIGN(4); _edata = .;
+  } > RAM AT > FLASH
+  .bss (NOLOAD) : { . = ALIGN(4); _sbss = .; *(.sbss*) *(.bss*) *(COMMON) . = ALIGN(4); _ebss = .; } > RAM
+  .noinit (NOLOAD) : { . = ALIGN(4); *(.noinit*) . = ALIGN(4); } > RAM
+  .heap (NOLOAD) : { . = ALIGN(8); end = .; _end = .; } > RAM
+  __heap_limit = _estack - _min_stack;
+  ASSERT(end <= __heap_limit, "RAM overflow: data + bss + stack do not fit")
+}

@@ -1,0 +1,5 @@
+name        = "minimal"
+sdk         = "bare"
+description = "Bare-metal C on any of the seven chips: chip startup + linker script, console, self-test; runs in qemu or Renode"
+targets     = ["mps2-an385", "stm32f411", "stm32h743", "stm32f103", "nrf52840", "virt-rv32", "ch32v003"]
+default_target = "mps2-an385"

@@ -1,0 +1,7 @@
+name        = "serial-hello"
+sdk         = "avr"
+description = "Print a counter over the UART at 115200 baud (ATtiny85: ATTinyCore software Serial, 9600)"
+targets     = ["nano", "nano-old", "mega", "attiny85"]
+hardware    = "Nano/Mega USB serial (CH340 on clones); ATtiny85 software Serial TX PB0 (AIN0) at 9600 via an external USB-UART"
+features    = ["uart", "serial"]
+status      = "builds; untested on hardware"

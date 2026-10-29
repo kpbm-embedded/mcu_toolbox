@@ -1,0 +1,8 @@
+name        = "button-irq"
+sdk         = "k210"
+description = "BOOT key GPIOHS edge interrupt toggles the green LED"
+targets     = ["m1n", "cm1"]
+runtime     = "standalone"
+hardware    = "Sipeed M1n Maix Nano / CM-1 K210 CanMV: RGB LED IO12/13/14 (active low), BOOT key IO16 (pins unconfirmed, see README)"
+features    = ["gpiohs", "plic", "irq"]
+status      = "builds; untested on hardware"

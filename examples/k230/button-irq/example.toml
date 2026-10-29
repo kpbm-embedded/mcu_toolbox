@@ -1,0 +1,7 @@
+name        = "button-irq"
+sdk         = "k230"
+description = "GPIO edge interrupt from the board key (drv_gpio_register_irq, 20 ms debounce) toggles the LED and counts presses"
+targets     = ["k230_rtos_01studio", "k230d_rtos_bpi_zero"]
+hardware    = "K230 CanMV 01Studio-style 1GB (k230_rtos_01studio), BPI-CanMV-K230D-Zero (k230d_rtos_bpi_zero); RT-Smart user-space app; 01studio: key IO21, LED IO52; BPI zero: SW3 key IO0, external LED on JP1-15 (IO2) (levels unverified, see README)"
+features    = ["gpio", "irq", "fpioa", "drv_gpio"]
+status      = "builds; untested on hardware"

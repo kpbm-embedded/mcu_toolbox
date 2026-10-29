@@ -1,0 +1,7 @@
+name        = "i2c-scan"
+sdk         = "k230"
+description = "Scan a hardware I2C bus at 100 kHz (addresses 0x08..0x77) with drv_i2c and list the ones that ACK"
+targets     = ["k230_rtos_01studio", "k230d_rtos_bpi_zero"]
+hardware    = "K230 CanMV 01Studio-style 1GB (k230_rtos_01studio), BPI-CanMV-K230D-Zero (k230d_rtos_bpi_zero); RT-Smart user-space app; 01studio: I2C0 SCL IO48 / SDA IO49; BPI zero: I2C2 SCL IO11 / SDA IO12 = JP1-3/5"
+features    = ["i2c", "fpioa", "drv_i2c"]
+status      = "builds; untested on hardware"

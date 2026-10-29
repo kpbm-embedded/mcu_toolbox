@@ -1,0 +1,7 @@
+name        = "ledc-pwm-fade"
+sdk         = "esp-idf"
+description = "LEDC PWM with hardware fade up/down"
+targets     = ["esp32", "esp32s3", "esp32c3", "esp32c6", "esp32p4"]
+hardware    = "External LED + resistor on PIN_LED (ESP32 GPIO2 onboard LED unverified, S3 GPIO2, C3 GPIO8 SuperMini onboard LED, C6 GPIO15, P4 GPIO23)"
+features    = ["ledc", "pwm", "fade"]
+status      = "builds; untested on hardware"

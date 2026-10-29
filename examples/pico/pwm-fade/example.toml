@@ -1,0 +1,7 @@
+name        = "pwm-fade"
+sdk         = "pico"
+description = "Fade the LED with hardware PWM"
+targets     = ["pico", "zero", "pico2", "pico2-riscv", "rp2350-zero", "rp2350-zero-riscv"]
+hardware    = "Pico/Pico 2: on-board LED GPIO25 (PWM); Zero boards: external LED on GP15"
+features    = ["pwm"]
+status      = "builds; untested on hardware"

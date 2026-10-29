@@ -1,0 +1,8 @@
+name        = "rtos-bl808"
+sdk         = "bouffalo"
+description = "BL808 M0-core FreeRTOS app on the legacy Bouffalo SDK (master_legacy 2.2.0): blink task + main task logging on the console UART"
+targets     = ["bl808"]
+default_target = "bl808"
+[vars]
+LED_PIN = { bl808 = "8" }
+BOARD_NOTE = { bl808 = "Sipeed M1s Dock (BL808), M0 core" }

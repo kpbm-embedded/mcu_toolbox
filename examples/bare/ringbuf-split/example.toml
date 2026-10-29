@@ -1,0 +1,7 @@
+name        = "ringbuf-split"
+sdk         = "bare"
+description = "Unit-test + firmware split: lib/ring buffer tested on the host (ctest) and the same code run on Arm and RISC-V in qemu"
+targets     = ["mps2-an385", "virt-rv32"]
+hardware    = "none: qemu/Renode models; board pins in chips/<chip>/chip.c"
+features    = ["unit-test", "host", "ctest", "qemu"]
+status      = "tested in qemu/Renode (check.sh bare); not run on a board"

@@ -1,0 +1,7 @@
+name        = "i2c-scan"
+sdk         = "bouffalo"
+description = "Scan I2C0 for devices (1-byte read probe, 0x08..0x77)"
+targets     = ["bl616", "bl702", "bl808"]
+hardware    = "Sipeed M0s Dock BL616 / Ai-M62; Sipeed M0sense BL702; Sipeed M1s Dock BL808 (M0 core, legacy SDK). I2C0: bl616 SDA GPIO11 SCL GPIO14 (bsp/board/bl616dk/board_gpio.c), bl702 SDA GPIO11 SCL GPIO16 (bsp/board/bl702dk/board.c), bl808 SDA GPIO11 SCL GPIO16 (legacy bsp/board/bl808dk/board.c)"
+features    = ["i2c"]
+status      = "builds; untested on hardware"

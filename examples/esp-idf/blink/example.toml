@@ -1,0 +1,7 @@
+name        = "blink"
+sdk         = "esp-idf"
+description = "Blink a plain GPIO LED (esp_driver_gpio) with logging"
+targets     = ["esp32", "esp32s3", "esp32c3", "esp32c6", "esp32p4"]
+hardware    = "ESP32-C3 SuperMini: LED GPIO8 (active low, blue); S3/C6/P4: external LED+resistor on GPIO2/15/23; ESP32 WROOM-32 CH340C: onboard LED GPIO2 (unverified) (see pins.h)"
+features    = ["gpio", "log"]
+status      = "builds; untested on hardware"

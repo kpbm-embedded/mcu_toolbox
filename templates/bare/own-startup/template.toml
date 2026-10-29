@@ -1,0 +1,5 @@
+name        = "own-startup"
+sdk         = "bare"
+description = "Startup code and linker script inside the project (only the shared toolchain file is used): vector table, Reset_Handler, sections"
+targets     = ["mps2-an385"]
+default_target = "mps2-an385"

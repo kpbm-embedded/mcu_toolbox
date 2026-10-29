@@ -1,0 +1,7 @@
+name        = "ch552-i2c-scan"
+sdk         = "avr"
+description = "Bit-banged I2C scan (CH55xDuino SoftI2C) on SCL P3.0 / SDA P3.1, results over USB CDC"
+targets     = ["ch552"]
+hardware    = "CH552T board: I2C device on P3.0 (SCL) / P3.1 (SDA) with 4.7k pull-ups"
+features    = ["i2c", "bitbang", "usb-cdc"]
+status      = "builds; untested on hardware"

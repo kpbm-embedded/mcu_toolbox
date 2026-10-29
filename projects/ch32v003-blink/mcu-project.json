@@ -1,0 +1,33 @@
+{
+  "kind": "make",
+  "env_sdk": "wch",
+  "toolchain": "cmake/toolchain.cmake",
+  "cmake_project": "ch32v003-blink",
+  "target": "firmware",
+  "elf": "fw/blink.elf",
+  "flash": {
+    "how": "mcu",
+    "sdk": "wch",
+    "target": "ch32v003",
+    "example": "blink",
+    "stage": "{gen}/fw"
+  },
+  "monitor": [
+    "wch"
+  ],
+  "debug": {
+    "label": "minichlink GDB server (WCH-LinkE)",
+    "exe": "../../toolchain/wch/bin/minichlink",
+    "args": [
+      "-baG"
+    ],
+    "connect": "tcp:localhost:3333",
+    "reset": "monitor reset halt"
+  },
+  "debug_skip": null,
+  "about": "ch32fun blink for CH32V003 (make)",
+  "sdk": "wch",
+  "name": "ch32v003-blink",
+  "sdk_target": "ch32v003",
+  "example": "blink"
+}

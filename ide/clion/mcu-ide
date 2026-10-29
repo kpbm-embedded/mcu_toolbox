@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# mcu-ide - CLion integration for the mcu workspace (see README.md next to this file).
+# Runs lib/mcu_ide.py with the workspace's own CPython in isolated mode.
+set -euo pipefail
+here="$(cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")" && pwd)"
+exec "$here/../../toolchain/host/python/cpython-3.12-linux-x86_64-gnu/bin/python3" -I "$here/lib/mcu_ide.py" "$@"

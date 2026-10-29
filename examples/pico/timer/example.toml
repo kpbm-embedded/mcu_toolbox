@@ -1,0 +1,7 @@
+name        = "timer"
+sdk         = "pico"
+description = "repeating_timer toggles the LED every 500 ms"
+targets     = ["pico", "zero", "pico2", "pico2-riscv", "rp2350-zero", "rp2350-zero-riscv"]
+hardware    = "LED per board (see README)"
+features    = ["timer","irq"]
+status      = "builds; untested on hardware"

@@ -1,0 +1,7 @@
+name        = "threads-mq"
+sdk         = "k230"
+description = "pthread producer/consumer over a message queue (mutex + condvar ring buffer)"
+targets     = ["k230_rtos_01studio", "k230d_rtos_bpi_zero"]
+hardware    = "K230 CanMV 01Studio-style 1GB (k230_rtos_01studio), BPI-CanMV-K230D-Zero (k230d_rtos_bpi_zero); RT-Smart user-space app"
+features    = ["pthread", "message-queue", "mutex"]
+status      = "builds; untested on hardware"

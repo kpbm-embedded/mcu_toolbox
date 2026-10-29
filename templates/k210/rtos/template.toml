@@ -1,0 +1,9 @@
+name           = "rtos"
+sdk            = "k210"
+description    = "Kendryte FreeRTOS SDK skeleton: two tasks, a queue and an LED, started from main()"
+targets        = ["m1n", "cm1"]
+default_target = "m1n"
+runtime        = "freertos"
+[boards]
+m1n = "Sipeed M1n Maix Nano"
+cm1 = "CM-1 K210 CanMV"

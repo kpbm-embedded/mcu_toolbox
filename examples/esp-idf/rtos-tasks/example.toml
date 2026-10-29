@@ -1,0 +1,7 @@
+name        = "rtos-tasks"
+sdk         = "esp-idf"
+description = "FreeRTOS producer/consumer tasks with a queue and a mutex-protected counter"
+targets     = ["esp32", "esp32s3", "esp32c3", "esp32c6", "esp32p4"]
+hardware    = "none (log only)"
+features    = ["freertos", "queue", "mutex"]
+status      = "builds; untested on hardware"

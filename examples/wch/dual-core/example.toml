@@ -1,0 +1,7 @@
+name        = "dual-core"
+sdk         = "wch"
+description = "CH32H417 dual core: the V3F starts the V5F (StartV5F); each core prints on its own UART, the V5F blinks the LED"
+targets     = ["ch32h417"]
+hardware    = "CH32H417: LED PE2 (ch32fun examples_h41x, unconfirmed), V3F printf USART1 TX PA9, V5F printf USART6 TX PA12"
+features    = ["multicore", "usart"]
+status      = "builds; untested on hardware"

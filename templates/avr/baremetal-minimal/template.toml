@@ -1,0 +1,5 @@
+name        = "baremetal-minimal"
+sdk         = "avr"
+description = "avr-gcc Makefile project without the Arduino core: blink from a Timer0 interrupt"
+targets     = ["nano", "nano-old", "mega", "attiny85"]
+default_target = "nano"

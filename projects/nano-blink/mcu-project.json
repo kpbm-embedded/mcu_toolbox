@@ -1,0 +1,25 @@
+{
+  "kind": "make",
+  "env_sdk": "avr",
+  "toolchain": "cmake/toolchain.cmake",
+  "cmake_project": "nano-blink",
+  "target": "firmware",
+  "elf": "fw/Blink.ino.elf",
+  "flash": {
+    "how": "mcu",
+    "sdk": "avr",
+    "target": "nano",
+    "example": "Blink",
+    "stage": "{gen}/fw"
+  },
+  "monitor": [
+    "avr"
+  ],
+  "debug": null,
+  "debug_skip": "AVR: no debugWIRE/JTAG GDB server in the workspace (Nano has no debug probe)",
+  "about": "Arduino sketch Blink for arduino:avr:nano:cpu=atmega328 (arduino-cli)",
+  "sdk": "avr",
+  "name": "nano-blink",
+  "sdk_target": "nano",
+  "example": "Blink"
+}

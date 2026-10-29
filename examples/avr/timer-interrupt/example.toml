@@ -1,0 +1,7 @@
+name        = "timer-interrupt"
+sdk         = "avr"
+description = "Timer0 CTC 1 kHz interrupt toggles the LED every 500 ms"
+targets     = ["nano", "nano-old", "mega", "attiny85"]
+hardware    = "Arduino Nano / Nano old-bootloader clone (ATmega328P): LED D13 = PB5; Mega 2560: LED D13 = PB7; ATtiny85 (8 MHz internal): LED PB1"
+features    = ["timer", "interrupt", "gpio"]
+status      = "builds; untested on hardware"

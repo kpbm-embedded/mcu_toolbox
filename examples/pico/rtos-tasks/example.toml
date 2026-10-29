@@ -1,0 +1,7 @@
+name        = "rtos-tasks"
+sdk         = "pico"
+description = "FreeRTOS SMP (both cores): blink task, producer/consumer over a queue, mutex-protected printf on UART0"
+targets     = ["pico", "zero", "pico2", "pico2-riscv", "rp2350-zero", "rp2350-zero-riscv"]
+hardware    = "LED per board (see README); console UART0 TX=GP0 RX=GP1"
+features    = ["freertos","smp","queue","mutex"]
+status      = "builds; untested on hardware"

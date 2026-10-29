@@ -1,0 +1,7 @@
+name        = "pwm-fade"
+sdk         = "stm32"
+description = "TIM3 CH1 PWM on PA6, 1 kHz, triangle duty ramp (LED fade)"
+targets     = ["blackpill-f411", "weact-g431", "mini-h743", "bluepill-f103"]
+hardware    = "External LED + resistor from PA6 to GND (on-board LEDs are not on a PWM pin)"
+features    = ["tim", "pwm", "gpio-af"]
+status      = "builds; untested on hardware"

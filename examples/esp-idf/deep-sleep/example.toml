@@ -1,0 +1,7 @@
+name        = "deep-sleep"
+sdk         = "esp-idf"
+description = "Deep sleep with timer wake and an RTC-retained counter"
+targets     = ["esp32", "esp32s3", "esp32c3", "esp32c6", "esp32p4"]
+hardware    = "none; measure current on the 3V3/5V rail to see sleep current"
+features    = ["sleep", "rtc"]
+status      = "builds; untested on hardware"

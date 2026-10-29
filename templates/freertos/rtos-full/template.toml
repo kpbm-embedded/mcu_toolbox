@@ -1,0 +1,8 @@
+name        = "rtos-full"
+sdk         = "freertos"
+description = "FreeRTOS tour: queue, mutex, software timer and event group wired together in one app"
+targets     = ["blackpill-f411", "weact-g431", "mini-h743", "bluepill-f103"]
+default_target = "blackpill-f411"
+[vars]
+LED_PIN   = { blackpill-f411 = "PC13", weact-g431 = "PC6", mini-h743 = "PE3", bluepill-f103 = "PC13" }
+HEAP_KB   = { blackpill-f411 = "32", weact-g431 = "16", mini-h743 = "64", bluepill-f103 = "8" }

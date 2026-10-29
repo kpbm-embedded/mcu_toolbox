@@ -1,0 +1,7 @@
+name        = "blink"
+sdk         = "avr"
+description = "Blink the on-board LED once per second"
+targets     = ["nano", "nano-old", "mega", "attiny85"]
+hardware    = "Nano/Mega on-board LED D13; ATtiny85 LED on PB1"
+features    = ["gpio", "delay"]
+status      = "builds; untested on hardware"

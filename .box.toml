@@ -1,0 +1,27 @@
+id = "32_01"
+name = "mcu"
+kind = "tool"
+status = "active"
+old_paths = []
+tags = []
+
+[backup]
+tier = "critical"
+
+[tool]
+name = "mcu"
+launcher = "mcu"
+aliases = ["mcu"]
+env_var = "BOX_MCU"
+env_path = "tool"
+
+[scripts.mcu]
+schema = 1
+kind = "launcher"
+path = "tool/mcu"
+summary = "one entry point for every SDK/toolchain in this workspace."
+interpreter = "bash"
+commands = ["help", "build", "rebuild", "flash", "monitor", "clean", "distclean", "logs", "list", "info", "status", "doctor", "versions", "targets", "examples", "where", "setup", "update", "outdated", "rollback", "prune", "selfcheck", "libcheck", "check-plugins", "check-clean", "shell", "run", "env", "new", "ide", "lint", "fmt", "test", "devtools"]
+flags = ["--all", "--cache", "--check", "--dry-run", "--help", "--jobs", "--lines", "--no-color", "--quiet", "--refresh", "--source", "--verbose", "--yes"]
+dry_run_flag = "--dry-run"
+scope = "global"

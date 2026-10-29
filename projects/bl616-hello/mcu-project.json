@@ -1,0 +1,43 @@
+{
+  "kind": "make",
+  "env_sdk": "bouffalo",
+  "toolchain": "cmake/toolchain.cmake",
+  "cmake_project": "bl616-hello",
+  "target": "firmware",
+  "elf": "fw/build_out/helloworld_bl616.elf",
+  "flash": {
+    "how": "bouffalo",
+    "sdk": "bouffalo",
+    "target": "bl616",
+    "chip": "bl616",
+    "board": "bl616dk",
+    "example": "helloworld"
+  },
+  "monitor": [
+    "bouffalo"
+  ],
+  "debug": {
+    "label": "OpenOCD (bouffalo_sdk) + RV-Debugger Plus / FT2232",
+    "exe": "../../toolchain/bouffalo/bouffalo_sdk/tools/openocd/bin/openocd",
+    "args": [
+      "-s",
+      "../../toolchain/bouffalo/bouffalo_sdk/tools/openocd",
+      "-f",
+      "interface/ft2232d.cfg",
+      "-f",
+      "target/tgt_e907.cfg"
+    ],
+    "connect": "tcp:localhost:3333",
+    "reset": "monitor reset halt",
+    "check": [
+      "-c",
+      "shutdown"
+    ]
+  },
+  "debug_skip": null,
+  "about": "bouffalo_sdk helloworld for bl616/bl616dk (make)",
+  "sdk": "bouffalo",
+  "name": "bl616-hello",
+  "sdk_target": "bl616",
+  "example": "helloworld"
+}

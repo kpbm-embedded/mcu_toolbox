@@ -1,0 +1,11 @@
+# WCH-Link / WCH-LinkE / WCH-LinkW (run mode and ISP/bootloader mode)
+SUBSYSTEM=="usb", ATTR{idVendor}=="1a86", ATTR{idProduct}=="8010", MODE="0666", TAG+="uaccess"
+SUBSYSTEM=="usb", ATTR{idVendor}=="1a86", ATTR{idProduct}=="8012", MODE="0666", TAG+="uaccess"
+# WCH USB ISP bootloader (CH32V/CH55x/CH57x etc.) used by wchisp / minichlink -w via ISP
+SUBSYSTEM=="usb", ATTR{idVendor}=="4348", ATTR{idProduct}=="55e0", MODE="0666", TAG+="uaccess"
+SUBSYSTEM=="usb", ATTR{idVendor}=="1a86", ATTR{idProduct}=="55e0", MODE="0666", TAG+="uaccess"
+# hidraw access for WCH-Link / minichlink
+KERNEL=="hidraw*", ATTRS{idVendor}=="1a86", MODE="0666", TAG+="uaccess"
+# ch32fun bitbang programmer (b003fun)
+SUBSYSTEM=="usb", ATTR{idVendor}=="1209", ATTR{idProduct}=="b003", MODE="0666", TAG+="uaccess"
+# Install (needs root): sudo cp udev/99-wch.rules /etc/udev/rules.d/ && sudo udevadm control --reload && sudo udevadm trigger

@@ -1,0 +1,5 @@
+name        = "size-budget"
+sdk         = "bare"
+description = "Small-chip firmware with a flash/RAM budget check (test.sh + budget.txt) for CI"
+targets     = ["ch32v003", "stm32f103"]
+default_target = "ch32v003"

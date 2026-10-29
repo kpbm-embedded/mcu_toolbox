@@ -1,0 +1,10 @@
+cmake_minimum_required(VERSION 3.20)
+# Rust logic (src/lib.rs, no_std staticlib built with the pinned rustc of 32_17_embedded_rust) + C startup/chip layer.
+set(CHIP "mps2-an385" CACHE STRING "chip: mps2-an385 stm32f411 virt-rv32")
+include($ENV{MCU_BARE}/cmake/bare_chip.cmake)
+project(rust-ffi C ASM)
+include($ENV{MCU_BARE}/cmake/bare.cmake)
+include($ENV{MCU_BARE}/cmake/langs.cmake)
+add_executable(rust-ffi src/main.c)
+bare_rust_staticlib(rust-ffi src/lib.rs)
+bare_firmware(rust-ffi)

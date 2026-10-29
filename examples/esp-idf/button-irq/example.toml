@@ -1,0 +1,7 @@
+name        = "button-irq"
+sdk         = "esp-idf"
+description = "GPIO interrupt on the BOOT button, handled via a queue (ISR to task)"
+targets     = ["esp32", "esp32s3", "esp32c3", "esp32c6", "esp32p4"]
+hardware    = "BOOT button (ESP32/S3 GPIO0, C3/C6 GPIO9, P4 GPIO35 assumed), active low; press = log line"
+features    = ["gpio", "isr", "queue"]
+status      = "builds; untested on hardware"

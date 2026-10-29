@@ -1,0 +1,54 @@
+{
+  "kind": "cmake",
+  "env_sdk": "pico",
+  "cmake_project": "pico2-blink",
+  "target": "blink",
+  "elf": "app/blink.elf",
+  "flash": {
+    "how": "mcu",
+    "sdk": "pico",
+    "target": "pico2",
+    "example": "blink",
+    "stage_level": "target",
+    "stage": "{gen}",
+    "stage_copy": [
+      "app/blink.uf2",
+      "app/blink.elf"
+    ]
+  },
+  "monitor": [
+    "pico"
+  ],
+  "debug": {
+    "label": "OpenOCD + CMSIS-DAP (debugprobe)",
+    "exe": "../../toolchain/tools/xpack-openocd/bin/openocd",
+    "args": [
+      "-s",
+      "../../toolchain/tools/xpack-openocd/openocd/scripts",
+      "-f",
+      "interface/cmsis-dap.cfg",
+      "-f",
+      "target/rp2350.cfg",
+      "-c",
+      "adapter speed 5000",
+      "-c",
+      "gdb port 3333",
+      "-c",
+      "telnet port disabled",
+      "-c",
+      "tcl port disabled"
+    ],
+    "connect": "tcp:localhost:3333",
+    "reset": "monitor reset halt",
+    "check": [
+      "-c",
+      "shutdown"
+    ]
+  },
+  "debug_skip": null,
+  "about": "Pico SDK blink for pico2",
+  "sdk": "pico",
+  "name": "pico2-blink",
+  "sdk_target": "pico2",
+  "example": "blink"
+}

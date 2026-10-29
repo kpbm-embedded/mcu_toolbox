@@ -1,0 +1,7 @@
+name        = "ch552-usb-cdc-serial"
+sdk         = "avr"
+description = "USB CDC serial: echo received bytes and print a heartbeat"
+targets     = ["ch552"]
+hardware    = "CH552T board: LED on P3.3 (CH55xDuino pin 33)"
+features    = ["usb", "cdc"]
+status      = "builds; untested on hardware"

@@ -1,0 +1,4 @@
+# arduino-cli settings for mcu/avr. The directories and the local ATTinyCore index (file:// URL) depend on where this
+# folder is, so env.sh sets them: ARDUINO_DIRECTORIES_{DATA,DOWNLOADS,USER}, ARDUINO_BOARD_MANAGER_ADDITIONAL_URLS.
+board_manager:
+    additional_urls: []

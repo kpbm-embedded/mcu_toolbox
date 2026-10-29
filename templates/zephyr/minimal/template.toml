@@ -1,0 +1,12 @@
+name        = "minimal"
+sdk         = "zephyr"
+description = "Blink led0 and print over the console UART; the smallest real app"
+targets     = ["blackpill_f411ce", "weact_g431", "weact_h562", "rpi_pico2", "promicro_nrf52840"]
+default_target = "blackpill_f411ce"
+
+[boards]
+blackpill_f411ce = "blackpill_f411ce"
+weact_g431 = "weact_stm32g431_core"
+weact_h562 = "weact_stm32h562_core"
+rpi_pico2 = "rpi_pico2/rp2350a/m33"
+promicro_nrf52840 = "promicro_nrf52840/nrf52840/uf2"

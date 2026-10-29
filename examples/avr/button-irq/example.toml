@@ -1,0 +1,7 @@
+name        = "button-irq"
+sdk         = "avr"
+description = "External interrupt on a button toggles the LED"
+targets     = ["nano", "nano-old", "mega", "attiny85"]
+hardware    = "Button between pin 2 and GND (internal pull-up): Nano D2 (INT0), Mega D2 (INT4), ATtiny85 pin 2 = PB2 (INT0); LED_BUILTIN"
+features    = ["gpio", "interrupt", "debounce"]
+status      = "builds; untested on hardware"

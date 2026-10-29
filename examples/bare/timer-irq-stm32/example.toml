@@ -1,0 +1,7 @@
+name        = "timer-irq-stm32"
+sdk         = "bare"
+description = "STM32 general-purpose timer TIM2 update interrupt through the NVIC (register level), counted against SysTick time"
+targets     = ["stm32f411", "stm32f103"]
+hardware    = "none: qemu/Renode models; board pins in chips/<chip>/chip.c"
+features    = ["timer", "nvic", "irq", "renode"]
+status      = "tested in qemu/Renode (check.sh bare); not run on a board"

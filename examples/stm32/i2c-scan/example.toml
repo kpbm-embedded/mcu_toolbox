@@ -1,0 +1,7 @@
+name        = "i2c-scan"
+sdk         = "stm32"
+description = "Scan I2C1 for 7-bit devices and print an address table"
+targets     = ["blackpill-f411", "weact-g431", "mini-h743", "bluepill-f103"]
+hardware    = "Any I2C device on I2C1 with 4.7k pull-ups: BlackPill/H743 PB8 SCL / PB9 SDA; BluePill PB6 SCL / PB7 SDA; WeAct G431 PA15 SCL / PB7 SDA"
+features    = ["i2c"]
+status      = "builds; untested on hardware"

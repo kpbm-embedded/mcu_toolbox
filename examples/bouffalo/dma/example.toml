@@ -1,0 +1,7 @@
+name        = "dma"
+sdk         = "bouffalo"
+description = "Memory-to-memory DMA (dma0_ch0, LLI, completion IRQ) verified and timed against memcpy"
+targets     = ["bl616", "bl702", "bl808"]
+hardware    = "Sipeed M0s Dock BL616 / Ai-M62; Sipeed M0sense BL702; Sipeed M1s Dock BL808 (M0 core, legacy SDK). No pins"
+features    = ["dma", "irq"]
+status      = "builds; untested on hardware"

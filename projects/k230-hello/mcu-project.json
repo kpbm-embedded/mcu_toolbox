@@ -1,0 +1,23 @@
+{
+  "kind": "make",
+  "env_sdk": "k230",
+  "toolchain": "cmake/toolchain.cmake",
+  "cmake_project": "k230-hello",
+  "target": "firmware",
+  "elf": "fw/k230-hello",
+  "flash": {
+    "how": "k230-deploy",
+    "sdk": "k230",
+    "target": "k230d_rtos_bpi_zero"
+  },
+  "monitor": [
+    "k230"
+  ],
+  "debug": null,
+  "debug_skip": "RT-Smart user process on a C908 running an OS: needs an on-target gdbserver that the SDK image does not ship; JTAG debug of the kernel is out of scope",
+  "about": "K230 RT-Smart user app (SDK helloworld, musl) for k230d_rtos_bpi_zero",
+  "sdk": "k230",
+  "name": "k230-hello",
+  "sdk_target": "k230d_rtos_bpi_zero",
+  "example": "hello"
+}

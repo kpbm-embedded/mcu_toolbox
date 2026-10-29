@@ -1,0 +1,7 @@
+name        = "noinit-reboot"
+sdk         = "bare"
+description = "Linker sections at work: .noinit survives a software reset (boot counter), code placed in RAM (.ramfunc), .data/.bss"
+targets     = ["mps2-an385"]
+hardware    = "none: qemu/Renode models; board pins in chips/<chip>/chip.c"
+features    = ["linker-script", "noinit", "ramfunc", "reset"]
+status      = "tested in qemu/Renode (check.sh bare); not run on a board"

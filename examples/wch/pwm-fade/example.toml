@@ -1,0 +1,7 @@
+name        = "pwm-fade"
+sdk         = "wch"
+description = "TIM2 PWM with a triangle duty ramp (breathing LED)"
+targets     = ["ch32v003", "ch32v203", "ch32v307", "ch32h417"]
+hardware    = "CH32V003 (WeAct F4U6 / EVT), CH32V203 (WeAct BluePill Plus C8T6), CH32V307V-R1, CH32H417; pins in board.h"
+features    = ["timer", "pwm", "af"]
+status      = "builds; untested on hardware"

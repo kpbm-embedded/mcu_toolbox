@@ -1,0 +1,7 @@
+name        = "uart-hello"
+sdk         = "esp-idf"
+description = "Echo on a second UART (UART1) plus periodic hello via logging"
+targets     = ["esp32", "esp32s3", "esp32c3", "esp32c6", "esp32p4"]
+hardware    = "Wire a USB-UART adapter to UART1 TX/RX pins in pins.h (ESP32 TX17/RX16, GND common); console stays on its default port"
+features    = ["uart", "log"]
+status      = "builds; untested on hardware"

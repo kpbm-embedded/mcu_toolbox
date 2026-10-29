@@ -1,0 +1,186 @@
+#!/usr/bin/env bash
+# mcu - one entry point for every SDK/toolchain in this workspace.
+#
+# This file is only the dispatcher: global flags, the command table and help. The logic lives in lib/*.sh,
+# each SDK is a plugin <sdk>/sdk.sh (contract: PLUGIN.md), the user guide is README.md.
+# Run `mcu help` for the command list, `mcu help <command>` for details.
+# Exit status: 0 ok, 1 failure, 2 usage error, 3 not implemented (reserved commands).
+
+case "$(uname -s)" in Linux|Darwin) ;; *) case "${1:-help}" in help|-h|--help) ;; *)   # exit 3 elsewhere
+  echo "mcu: not supported on $(uname -s): the toolchains and SDKs here are Linux builds; use a Linux VM or WSL" >&2; exit 3 ;; esac ;; esac
+MCU_ROOT="$(cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")" && pwd)"
+
+# shellcheck source=lib/core.sh
+source "$MCU_ROOT/lib/core.sh"
+# shellcheck source=lib/helpers.sh
+source "$MCU_ROOT/lib/helpers.sh"
+# shellcheck source=lib/plugin.sh
+source "$MCU_ROOT/lib/plugin.sh"
+# shellcheck source=lib/build.sh
+source "$MCU_ROOT/lib/build.sh"
+# shellcheck source=lib/check.sh
+source "$MCU_ROOT/lib/check.sh"
+# shellcheck source=lib/update-cmd.sh
+source "$MCU_ROOT/lib/update-cmd.sh"
+# shellcheck source=lib/query.sh
+source "$MCU_ROOT/lib/query.sh"
+# shellcheck source=lib/session.sh
+source "$MCU_ROOT/lib/session.sh"
+# shellcheck source=lib/dev.sh
+source "$MCU_ROOT/lib/dev.sh"
+# shellcheck source=lib/help.sh
+source "$MCU_ROOT/lib/help.sh"
+
+# Every command: name;group;usage;summary. Groups "hidden" and "reserved" are left out of `mcu help`.
+command_table() {
+  cat <<'EOF'
+build;build and flash;build <sdk> <target> [example] [-- args];build into $MCU_OUT_BASE/<sdk>/<target>/<example>, log + summary
+rebuild;build and flash;rebuild <sdk> <target> [example] [-- args];clean that build, then build it
+flash;build and flash;flash <sdk> <target> [example] [port|probe];flash the last build
+monitor;build and flash;monitor <sdk> [port] [baud];serial console
+clean;build and flash;clean <sdk> [target [example]] | all | --cache <sdk|all>;move build outputs (or caches) to the Trash
+distclean;build and flash;distclean <sdk|all>;builds + selfcheck outputs + state of the SDK to the Trash
+logs;build and flash;logs <sdk> [target] [example] [--lines N];path and tail of the last build/selfcheck log
+list;information;list;SDKs with descriptions
+info;information;info <sdk>;description, dirs, targets, examples, flash tools, docs
+status;information;status [sdk] [--refresh];versions, last build, selfcheck, updates, disk use
+doctor;information;doctor [sdk|all];required tools present, with versions
+versions;information;versions [sdk|all];installed/pinned versions
+targets;information;targets <sdk>;boards/targets the SDK can build
+examples;information;examples <sdk>;examples the SDK can build
+where;information;where;key paths: tool dir, build output, state, selfcheck logs, Trash
+setup;maintenance;setup [list|check|install|fetch|latest|links] [group|name...];pinned SDKs/toolchains from config/pins.tsv (sha256/commit checked), links to sibling IDs
+update;maintenance;update <sdk|all> [version];dry run: installed -> latest, --yes applies, verifies, rolls back on failure
+outdated;maintenance;outdated;components with a newer version (dry run of update all)
+rollback;maintenance;rollback <sdk>;undo the last applied update
+prune;maintenance;prune [sdk|all];versions older than the previous one (--yes: to the Trash)
+selfcheck;maintenance;selfcheck [sdk|all];build SDK_SELFCHECK with PATH = OS base utilities only
+libcheck;maintenance;libcheck [sdk|all];host binaries loading non-glibc libraries from the OS
+check-plugins;maintenance;check-plugins [sdk|all];validate plugins against PLUGIN.md
+check-clean;maintenance;check-clean [sdk|all];SDK git checkouts unchanged by builds (no modified/untracked files)
+shell;environment;shell <sdk>;interactive shell with the SDK environment
+run;environment;run <sdk> -- <cmd...>;run one command inside the SDK environment
+env;environment;env <sdk>;print the line that sources the SDK environment
+new;environment;new <sdk> <name> [target];new project in projects/<name> from templates/<sdk> (the minimal template for the target)
+ide;environment;ide new <sdk> <name> [target] [--source DIR];CLion projects, see clion/README.md
+lint;development;lint [--all];shellcheck the mcu scripts
+fmt;development;fmt [--check] [--all];shfmt the mcu scripts
+test;development;test [bats args];run the bats test suite
+devtools;development;devtools [install];pinned shellcheck/shfmt/bats status or install
+help;development;help [command];this overview, or details for one command
+_selfcheck;hidden;_selfcheck <sdk>;internal: sdk_selfcheck under the strict PATH
+__complete;hidden;__complete <what> [sdk];internal: words for shell completion
+install;reserved;install <sdk> <component>@<version>;reserved: side-by-side component versions
+use;reserved;use <sdk> <component>@<version>;reserved: switch the active component version
+graph;reserved;graph;reserved: dependency graph
+deps;reserved;deps <sdk>;reserved: dependencies of an SDK
+rdeps;reserved;rdeps <sdk>;reserved: reverse dependencies of an SDK
+check-deps;reserved;check-deps;reserved: version constraints check
+lock;reserved;lock;reserved: workspace mcu.lock
+EOF
+}
+
+# Names of the commands in one group (all non-hidden groups when none given).
+command_names_in() {
+  local wanted="$1" name group rest
+  while IFS=';' read -r name group rest; do
+    [[ "$group" == "$wanted" ]] && printf '%s\n' "$name"
+  done < <(command_table)
+  return 0
+}
+
+# User-visible command names (completion).
+command_names() {
+  local name group rest
+  while IFS=';' read -r name group rest; do
+    [[ "$group" == hidden || "$group" == reserved ]] || printf '%s\n' "$name"
+  done < <(command_table)
+}
+
+# Group of a command ("" when unknown).
+command_group() {
+  local wanted="$1" name group rest
+  while IFS=';' read -r name group rest; do
+    [[ "$name" == "$wanted" ]] && printf '%s\n' "$group" && return 0
+  done < <(command_table)
+  return 0
+}
+
+# Apply one short flag letter (-y -n -v -q).
+apply_short_flag() {
+  case "$1" in
+    y) MCU_YES=1 ;;
+    n) MCU_DRY_RUN=1 ;;
+    v) MCU_VERBOSE=1 ;;
+    q) MCU_QUIET=1 ;;
+  esac
+}
+
+# Validate and set the job count.
+set_jobs() {
+  [[ "$1" =~ ^[1-9][0-9]*$ ]] || die_usage help "-j needs a positive number, got '$1'"
+  MCU_JOBS="$1"
+}
+
+# Split argv into global flags (applied to MCU_*), COMMAND and COMMAND_ARGS.
+# Flags are recognized anywhere up to a '--'; for `run` everything after the sdk is passed verbatim.
+parse_args() {
+  COMMAND="" WANT_HELP=0
+  COMMAND_ARGS=()
+  while [[ $# -gt 0 ]]; do
+    if [[ "$1" == -- ]] || [[ "$COMMAND" == run && ${#COMMAND_ARGS[@]} -ge 1 ]]; then
+      COMMAND_ARGS+=("$@")
+      return 0
+    fi
+    case "$1" in
+      -y | --yes) MCU_YES=1 ;;
+      -n | --dry-run) MCU_DRY_RUN=1 ;;
+      -v | --verbose) MCU_VERBOSE=1 ;;
+      -q | --quiet) MCU_QUIET=1 ;;
+      --no-color) MCU_COLOR=never ;;
+      -h | --help) WANT_HELP=1 ;;
+      -j | --jobs)
+        set_jobs "${2:-}"
+        shift
+        ;;
+      -j[0-9]*) set_jobs "${1#-j}" ;;
+      --jobs=*) set_jobs "${1#--jobs=}" ;;
+      -[ynvq][ynvq]*)
+        local i
+        for ((i = 1; i < ${#1}; i++)); do apply_short_flag "${1:i:1}"; done
+        ;;
+      *)
+        if [[ -z "$COMMAND" ]]; then COMMAND="$1"; else COMMAND_ARGS+=("$1"); fi
+        ;;
+    esac
+    shift
+  done
+}
+
+# Look up and run the command.
+dispatch() {
+  local group fn
+  [[ -n "$COMMAND" ]] || COMMAND=help
+  [[ "$COMMAND" == -* ]] && die_usage help "unknown flag '$COMMAND'"
+  group="$(command_group "$COMMAND")"
+  [[ -n "$group" ]] || die_usage help "unknown command '$COMMAND' (mcu help lists them)"
+  if ((WANT_HELP)); then
+    help_command "$COMMAND"
+    return 0
+  fi
+  if [[ "$group" == reserved ]]; then
+    log_error "'$COMMAND' is reserved for version management (not implemented yet)"
+    exit 3
+  fi
+  fn="cmd_${COMMAND//-/_}"
+  "$fn" "${COMMAND_ARGS[@]}"
+}
+
+main() {
+  core_strict_mode
+  parse_args "$@"
+  core_init_settings
+  dispatch
+}
+
+main "$@"

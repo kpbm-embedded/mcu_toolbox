@@ -1,0 +1,7 @@
+name        = "low-power"
+sdk         = "pico"
+description = "pico_low_power: sleep 5 s on the timer, then go dormant until a button press on GP14"
+targets     = ["pico", "zero", "pico2", "pico2-riscv", "rp2350-zero", "rp2350-zero-riscv"]
+hardware    = "Button GP14 to GND (internal pull-up); LED per board (see README); console UART0 TX=GP0 RX=GP1"
+features    = ["low-power","sleep","dormant","gpio-wake"]
+status      = "builds; untested on hardware"

@@ -1,0 +1,8 @@
+name        = "dma"
+sdk         = "k210"
+description = "DMAC memory-to-memory copy of 16 KiB between uncached iomem buffers: polled, then interrupt-signalled, timed against memcpy"
+targets     = ["m1n", "cm1"]
+runtime     = "standalone"
+hardware    = "Sipeed M1n Maix Nano / CM-1 K210 CanMV: no pins used; output on the USB-serial (UARTHS) console"
+features    = ["dmac", "iomem", "plic", "irq"]
+status      = "builds; untested on hardware"

@@ -1,0 +1,7 @@
+name        = "size-budget"
+sdk         = "bare"
+description = "Flash/RAM budget check of a small-chip firmware: size per section against limits in budget.txt, biggest symbols listed"
+targets     = ["ch32v003", "stm32f103"]
+hardware    = "none: qemu/Renode models; board pins in chips/<chip>/chip.c"
+features    = ["size", "map", "budget", "ci"]
+status      = "tested in qemu/Renode (check.sh bare); not run on a board"

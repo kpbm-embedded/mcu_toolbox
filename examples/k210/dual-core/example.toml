@@ -1,0 +1,8 @@
+name        = "dual-core"
+sdk         = "k210"
+description = "Start core 1 with register_core1(); both cores blink a different LED and exchange a counter under a corelock"
+targets     = ["m1n", "cm1"]
+runtime     = "standalone"
+hardware    = "Sipeed M1n Maix Nano / CM-1 K210 CanMV: RGB LED IO12/13/14 (active low), BOOT key IO16 (pins unconfirmed, see README)"
+features    = ["smp", "corelock"]
+status      = "builds; untested on hardware"
